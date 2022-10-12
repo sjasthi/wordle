@@ -164,63 +164,61 @@ require 'db_configuration.php';
     </div>
 </div>
 
-<!--  Help Modal      -->
-<div id="help_modal" class="modal" style="height:90%;overflow:auto">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <pre>
-        <span style="font-size: 200%; ">How To Play</span>
-        You can choose to play in English or Telugu.
+            <!--  Help Modal      -->
+            <div id="help_modal" class="modal" style="height:90%;overflow:auto">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2></span><span style="font-family:'Arial';"><span style="font-size: 150%; ">How To Play</h2>
+                    <span style="font-family:'Arial';font-size: 120%;">You can choose to play in English or Telugu.<br>
         Set the WORDLE word length with the <img src="images/setting.png" alt="settings"
-                                                 style="width:20px;height:20px;vertical-align:middle;"> button.
-        Each guess must input a valid word with the correct length.
-        Hit the enter or click "Submit" button to submit.
-        After each guess, the color of the tiles will change to show how close your guess was to the actual word.
+                                                 style="width:20px;height:20px;vertical-align:middle;"> button.<br>
+        Each guess must input a valid word with the correct length.<br>
+        Hit the enter or click "Submit" button to submit.<br>
+                        After each guess, the color of the tiles will change to show how close your guess was to the actual word.<br><br></span></span>
 
-                        </pre>
-        <h4><span style="font-size: 144%; ">English:</span></h4>
-        <div>
-            <div><img src="images/g1.png" alt="green1" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span>The letter 'g' is in the word and in the correct spot.<span></div>
+
+                    <h4><span style="font-size: 144%; ">English:</span></h4>
+                    <div>
+                        <div><img src="images/e_g1.png" alt="green1" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">The letter 'g' is in the word and in the correct spot.<span></div>
+                    <br><div>
+                        <div><img src="images/e_iy.png" alt="yellow" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">The letter 'i' is in the word but in the wrong spot.</span></div>
+                    <br><div>
+                        <div><img src="images/e_almostgreen.png" alt="almostgreen" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">The letter 'u' is not in the word in any spot.</span></div>
+                    <br><div>
+                        <div><img src="images/e_allgreen.png" alt="allGreen" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
+                    <p></p>
+                    <h4><span style="font-size: 144%; ">Telugu:</span></h4>
+                    <span style="font-family:'Arial';font-size: 120%;">Exact Match Logic is the same as English, but there are added Base Match Logic's color:</span>
+                    <br><div>
+                        <div><img src="images/t_yellow.png" alt="t_yellow" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">The letters 'అ' and 'న్న' are in the word. but in the wrong spot.</span></div>
+                    <br><div>
+                        <div><img src="images/t_yellowpink.png" alt="pink" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">The letter 'అ' is in the word, but in the wrong spot. The letter 'న' is a Base Match, but in the wrong spot.</span></div>
+                    <br><div>
+                        <div><img src="images/t_greenblue.png" alt="greenblue" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">The letters 'అన్నమ' are a match and in the correct spot. The letter 'య' is Base Match in the word, and in the correct spot.</span></div>
+                    <br><div>
+                        <div><img src="images/t_green.png" alt="t_green" style="width:300px;height:50px;vertical-align:middle;"></div>
+                        <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
+                    <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00<br>New Telugu Word at 20:00 </h5></span>
+                    <p></p>
+                    <h4><span style="font-family:'Arial';font-size: 150%;">About Wordle:</span></h4>
+                    <span style="font-family:'Arial';font-size: 120%;">
         <br>
-        <div>
-            <div><img src="images/iy.png" alt="yellow" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span>The letter 'i' is in the word but in the wrong spot.</span></div>
-        <br>
-        <div>
-            <div><img src="images/glayu1.png" alt="glayu" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span>The letter 'u' is not in the word in any spot.</span></div>
-        <br>
-        <div>
-            <div><img src="images/allgreen.png" alt="allGreen" style="width:300px;height:50px;vertical-align:middle;">
+        This game was created as part of the ICS-499 course at Metropolitan State University, St. Paul, MN.<br><br>
+        <span style="font-style: italic;">Sharon Shin<br>
+        Bonnie Le<br>
+        Julia Ha<br>
+        Yahya Mohamed<br>
+                    Phuc To<br>
+                </span>
+                </div>
             </div>
-            <span>All green letters means You Win!</span></div>
-        <p></p>
-        <h4><span style="font-size: 144%; ">Telugu:</span></h4>
-        <span>Exact Match Logic asame English, and more Base Match Logic's color:</span>
-        <br>
-        <div>
-            <div><img src="images/blue.png" alt="blue" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span>The letter 'డ' is Base Match in the word, and in the correct spot.</span></div>
-        <br>
-        <div>
-            <div><img src="images/pink.png" alt="pink" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span>The letter 'న్న' is Base Match in the word, but in the wrong spot.</span></div>
-        <br><br><span>A new WORDLE will be available each day! </span>
-        <p></p>
-        <p></p>
-        <h4>About:</h4>
-        <pre>
-        Animals: Version 2
-        This game was created as part of the ICS-499 course at Metropolitan State University, St. Paul, MN.
-        Sharon Shin
-        Bonnie Le
-        Julia Ha
-        Yahya Mohamed
-        Phuc To
-                </pre>
-    </div>
-</div>
 
 <!--   Stat Modal   -->
 <div id="stat_modal" class="modal">
