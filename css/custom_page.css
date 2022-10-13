@@ -108,9 +108,8 @@
 }
 
 #title{
-    margin: 0;
+    margin-top: 20px;
     position: absolute;
-    top: 12px;
     left: 35%;
     align-content: center;
     display: inline-block;
@@ -118,6 +117,8 @@
     font-size: 60px;
     font-weight: bold;
     letter-spacing: 2px;
+    text-align: center;
+    color: darkgoldenrod;
 }
 
 #secondary_screen_logo{

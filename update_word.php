@@ -133,10 +133,10 @@ if (isset($_GET['id'])){
                 text-align: center;
                 font-weight: bold;
             }
-            #title {
-                text-align: center;
-                color: darkgoldenrod;
-            }
+            /*#title {*/
+            /*    text-align: center;*/
+            /*    color: darkgoldenrod;*/
+            /*}*/
             #toggle {
                 color: 	#4397fb;
             }
