@@ -72,12 +72,6 @@ require 'db_configuration.php';
             <h1 id="title" style="left: 42%">Wordle</h1>
         </div>
         <div id="menu_buttons">
-            <div id="setting_button">
-                <button onclick="showSettingsModal()" class="modalbtn">
-                    <img src="images/icons-settings-96.png" alt="Setting Icon"
-                         style="Display:Block;width:70px;height:70px;">
-                </button>
-            </div>
             <div id="help_button">
                 <button onclick="showHelpModal()" class="modalbtn">
                     <img src="images/icons-help.png" alt="Help Icon" style="Display:Block;width:70px;height:70px;">
@@ -113,9 +107,6 @@ require 'db_configuration.php';
     <div id="character_tile_panel">
         <table id="character_table"></table>
     </div>
-    <!-- <div id="animal_tile_panel">
-        <table id="animal_table"></table>
-    </div> -->
 </div>
 <div id="game_message">
 
@@ -129,48 +120,6 @@ require 'db_configuration.php';
     </form>
 </div>
 
-<!--  Setting Modal      -->
-<div id="settings_modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3><span style="font-size: 40px">Settings</span></h3>
-        <p></p>
-        <hr>
-        <br><br>
-        <h3><label for="lang">Language</label>
-            
-            <select name="lang" id="lang">
-                <option value="english" selected>English</option>
-                <option value="telugu">Telugu</option>
-            </select></h3>
-        
-        <!-- <br><br>
-
-        <h3><label for="length">Length</label>
-
-            <select name="length" id="length">
-                <option value="3">3</option>
-                <option value="4" selected>4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-            </select></h3>
-
-        <br><br>
-        <h3><label for="attempts">Attempts</label>
-            <select name="attempts" id="attempts">
-                <option value="6" selected >6</option>
-                <option value="7">7</option>
-                <option value="8" >8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select></h3> -->
-        <br>
-        <h3>
-            <button id="apply-button" class="apply" type="button" onclick="buildTables()">Apply</button>
-        </h3>
-    </div>
-</div>
 
 <!--  Help Modal      -->
 <div id="help_modal" class="modal" style="height:90%;overflow:auto">
@@ -187,23 +136,23 @@ require 'db_configuration.php';
         
         <h4><span style="font-size: 144%; ">English:</span></h4>
         <div>
-            <div><img src="images/e_g1.png" alt="green1" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'g' is in the word and in the correct spot.<span>
+            <div><img src="images/e_g1.png" alt="green1" style="height:50px;vertical-align:middle;"></div>
+            <span style="font-family:'Arial';font-size: 120%;">The letter 'b' is in the word and in the correct spot.<span>
         </div>
         <br>
         <div>
-            <div><img src="images/e_iy.png" alt="yellow" style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'i' is in the word but in the wrong spot.</span>
+            <div><img src="images/e_iy.png" alt="yellow" style="height:50px;vertical-align:middle;"></div>
+            <span style="font-family:'Arial';font-size: 120%;">The letter 'a' is in the word but in the wrong spot.</span>
         </div>
         <br>
         <div>
             <div><img src="images/e_almostgreen.png" alt="almostgreen"
-                      style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'u' is not in the word in any spot.</span>
+                      style="height:50px;vertical-align:middle;"></div>
+            <span style="font-family:'Arial';font-size: 120%;">The letter 'o' is not in the word in any spot.</span>
         </div>
         <br>
         <div>
-            <div><img src="images/e_allgreen.png" alt="allGreen" style="width:300px;height:50px;vertical-align:middle;">
+            <div><img src="images/e_allgreen.png" alt="allGreen" style="height:50px;vertical-align:middle;">
             </div>
             <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
         <p></p>
@@ -211,25 +160,31 @@ require 'db_configuration.php';
         <span style="font-family:'Arial';font-size: 120%;">Exact Match Logic is the same as English, but there are added Base Match Logic's color:</span>
         <br>
         <div>
-            <div><img src="images/t_yellow.png" alt="t_yellow" style="width:300px;height:50px;vertical-align:middle;">
+            <div><img src="images/t_yellow.png" alt="t_yellow" style="height:50px;vertical-align:middle;">
             </div>
             <span style="font-family:'Arial';font-size: 120%;">The letters 'అ' and 'న్న' are in the word. but in the wrong spot.</span>
         </div>
         <br>
         <div>
-            <div><img src="images/t_yellowpink.png" alt="pink" style="width:300px;height:50px;vertical-align:middle;">
+            <div><img src="images/t_yellowpink.png" alt="pink" style="height:50px;vertical-align:middle;">
             </div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'అ' is in the word, but in the wrong spot. The letter 'న' is a Base Match, but in the wrong spot.</span>
+            <span style="font-family:'Arial';font-size: 120%;">The letter 'న' is a Base Match, but in the wrong spot.</span>
         </div>
         <br>
         <div>
             <div><img src="images/t_greenblue.png" alt="greenblue"
-                      style="width:300px;height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letters 'అన్నమ' are a match and in the correct spot. The letter 'య' is Base Match in the word, and in the correct spot.</span>
+                      style="height:50px;vertical-align:middle;"></div>
+            <span style="font-family:'Arial';font-size: 120%;">The letter 'య' is Base Match in the word, and in the correct spot.</span>
         </div>
         <br>
         <div>
-            <div><img src="images/t_green.png" alt="t_green" style="width:300px;height:50px;vertical-align:middle;">
+            <div><img src="images/t_gray.png" alt="greenblue"
+                      style="height:50px;vertical-align:middle;"></div>
+            <span style="font-family:'Arial';font-size: 120%;">The letter 'కం' and 'దా' doesn't match the Base Character and Logical Character of the word in any spot</span>
+        </div>
+        <br>
+        <div>
+            <div><img src="images/t_green.png" alt="t_green" style="height:50px;vertical-align:middle;">
             </div>
             <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
         <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00<br>New Telugu Word at 20:00 </h5></span>
@@ -300,50 +255,15 @@ require 'db_configuration.php';
     // Javascript function to pull puzzle_word details and build UI tables
     <?php
     if(isset($_GET['id'])) {
-    // $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
-    // $id = $_GET['id'];
-    // $sql = "SELECT * FROM custom_words
-    //                         WHERE id = '$id'";
-    // $result = $conn->query($sql);
-    
-    // if ($result->num_rows > 0) {
-    //     while ($row = $result->fetch_assoc()) {
-    //         $customWord = $row["word"];
-    //     }
-    //     $conn->close();
-    // }
     ?>
-    // var word = "<questionMark-php echo $customWord; ?>";
-    // fillCustomWord(word);
-    loadCustomedGame();
-    
+        loadCustomedGame();
     <?php
     } else {
-    // date_default_timezone_set('America/Chicago');
-    // // $date = date("Y-m-d");
-    //  $date = "2022-09-27";
-    
-    // $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
-    
-    //  if (date("H") >= 8 && date("H") < 20) {
-    //      $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '08:00:00'";
-    //  } else {
-    //      $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
-    //  }
-    //  $result = $conn->query($sql);
-    //  $row = $result->fetch_assoc();
-    //  $puzzleWord = $row["word"];
-    
-    // $conn->close();
-    
     ?>
-    // var word = "<questionMark-php echo $puzzleWord; ?>";
-    
-    // fillPuzzleWord(word);
-    loadPuzzleGame();
+        loadPuzzleGame();
     <?php
     } ?>
-    // getPuzzleWord("English");
+
     // loadGame();
     
     
@@ -359,18 +279,18 @@ require 'db_configuration.php';
         document.getElementById("stat_modal").style.display = "block";
     }
     
-    function showSettingsModal() {
-        document.getElementById("settings_modal").style.display = "block";
-    }
+    // function showSettingsModal() {
+    //     document.getElementById("settings_modal").style.display = "block";
+    // }
     
     
-    var helpModalSpan = document.getElementsByClassName("close")[1];
-    var statModalSpan = document.getElementsByClassName("close")[2];
-    var settingModalSpan = document.getElementsByClassName("close")[0];
+    var helpModalSpan = document.getElementsByClassName("close")[0];
+    var statModalSpan = document.getElementsByClassName("close")[1];
+    // var settingModalSpan = document.getElementsByClassName("close")[0];
     
     var helpModal = document.getElementById("help_modal");
     var statModal = document.getElementById("stat_modal");
-    var settingModal = document.getElementById("settings_modal");
+    // var settingModal = document.getElementById("settings_modal");
     
     // When the user clicks on <span> (x), close the modal
     helpModalSpan.onclick = function () {
@@ -382,10 +302,9 @@ require 'db_configuration.php';
         statModal.style.display = "none";
     }
     
-    settingModalSpan.onclick = function () {
-        
-        settingModal.style.display = "none";
-    }
+    // settingModalSpan.onclick = function () {
+    //     settingModal.style.display = "none";
+    // }
     
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -393,22 +312,20 @@ require 'db_configuration.php';
             helpModal.style.display = "none";
         } else if (event.target === statModal) {
             statModal.style.display = "none";
-        } else if (event.target == settingModal) {
-            settingModal.style.display = "none";
-        }
+        } 
     }
     
-    var languageElement = document.getElementById("lang");
-    var lengthElement = document.getElementById("length");
-    var attemptsElement = document.getElementById("attempts");
+    // var languageElement = document.getElementById("lang");
+    // var lengthElement = document.getElementById("length");
+    // var attemptsElement = document.getElementById("attempts");
     //settingModal.onchange = buildTables();
     
-    var applyButton = document.getElementById("apply-button");
-    applyButton.onclick = function () {
-        resetGame();
-        loadPuzzleGame();
-        settingModal.style.display = "none";
-    }
+    // var applyButton = document.getElementById("apply-button");
+    // applyButton.onclick = function () {
+    //     resetGame();
+    //     loadPuzzleGame();
+    //     settingModal.style.display = "none";
+    // }
 
 </script>
 </body>

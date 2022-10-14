@@ -122,6 +122,9 @@
         $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
         if(date("H") >= 8 && date("H") < 20) {
             $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '08:00:00'";
+        } else if (date("H" < 8)) {
+            $date = date("Y-m-d", strtotime("yesterday")); 
+            $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
         } else {
             $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
         }
@@ -137,6 +140,9 @@
         $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
         if(date("H") >= 8 && date("H") < 20) {
             $sql = "SELECT clue FROM puzzle_words WHERE date = '$date' AND time = '08:00:00' AND word = '$word'";
+        } else if (date("H" < 8)) {
+            $date = date("Y-m-d", strtotime("yesterday")); 
+            $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
         } else {
             $sql = "SELECT clue FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
         }
@@ -202,7 +208,6 @@
     }
 
     function getBaseChars($word, $language) {
-        // $api_info = curl_init("https://wpapi.telugupuzzles.com/api/getBaseChars.php?string={$word}&language={$language}");
         $api_info = curl_init("https://wpapi.telugupuzzles.com/api/getBaseCharacters.php?input1={$word}&input2={$language}");
         curl_setopt($api_info, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($api_info);
@@ -218,7 +223,6 @@
         $data = json_decode($response, true);
 
         echo json_encode($data["data"]);
-        // echo json_encode($data);
     }
 
     /*  1 = Exact match and correct position (English: Bull, Telugu: Elephant)
@@ -237,7 +241,6 @@
          curl_close($api_info);
          $data = json_decode($response, true);
 
-//         console.log($data);
          return $data["data"];
     }
 
@@ -248,6 +251,9 @@
         $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
         if(date("H") >= 8 && date("H") < 20) {
             $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '08:00:00'";
+        } else if (date("H" < 8)) {
+            $date = date("Y-m-d", strtotime("yesterday")); 
+            $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
         } else {
             $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
         }
@@ -278,83 +284,5 @@
         }
         return $customedWord;
     }
-
-
-/**
- * Written by Sharon in PHP to parse English words in Wordle.
- * Does not work correctly for some reason ):
- */
-//function findMatchIndexes($letter, $word) {
-//    $list = str_split($word);
-//    $output = array();
-//    for ($x = 0; $x < count($list); $x++) {
-//        if($letter === $list[$x]) {
-//            array_push($output, $x);
-////            print_r($output);
-//        }
-//    }
-//    return $output;
-//}
-//
-//function checkEnglishMatch($actual_word, $guess_word) {
-//    $found = array();
-//    $actual_list = str_split($actual_word);
-//    $guess_list = str_split($guess_word);
-//    //check to see if there are any direct matches
-//    for ($x = 0; $x < count($actual_list); $x++) {
-//        if($actual_list[$x] === $guess_list[$x]) {
-//            array_push($found, 1);
-//        } else {
-//            array_push($found, 5);
-//        }
-//    }
-////    print_r($found);
-//
-//    for ($x = 0; $x < count($actual_list); $x++) {
-//        $letter = $actual_list[$x];
-//        $lettersChecked = array();
-////        print_r("\n\nLetter is ");
-////        print_r($letter);
-//        $compareNum = 0;
-//        $index_matches = substr_count($actual_word, $actual_word[$x]);
-////        print_r("\nMatches" . $index_matches);
-//        for ($y = 0; $y < count($found); $y++) {
-////            print_r("\nComparing to letter ");
-////            print_r($guess_list[$y]);
-//            if($guess_list[$y] === $letter && $guess_list[$y] === $actual_list[$y]) {
-////                print_r("\nMatch found");
-//                $found[$y] = "1";
-//                $compareNum += 1;
-//                array_push($lettersChecked, $guess_list[$y]);
-////                print_r("\nLetters Already Checked: ");
-////                print_r($lettersChecked);
-//            } else if($guess_list[$y] === $letter && $compareNum < $index_matches && !in_array($guess_list[$y], $lettersChecked) && $found[$y] == "5" ) {
-////                print_r("\nMatch but wrong spot");
-////                print_r($compareNum);
-////                print_r($index_matches);
-//                $found[$y] = "2";
-//                $compareNum += 1;
-//            } else if ($guess_list[$y] === $letter && $compareNum >= $index_matches ){
-////                print_r("\nNo match found");
-//                $found[$y] = "5";
-//            }
-//        }
-//    }
-//    return arrayToString($found);
-//}
-//
-//function arrayToString($arr) {
-//        $output = "";
-//    for ($x = 0; $x < count($arr); $x++) {
-//        $output .= $arr[$x];
-//    }
-////    print_r("Array to string:" . $output);
-//    return $output;
-//}
-//
-////    echo checkEnglishMatch("hello", "hhhhh");
-////    echo findMatchIndexes("a", "aaaa");
-//
-//    //echo "<script>console.log($response);</script>";    // console example
 
 ?>
