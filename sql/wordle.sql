@@ -69,7 +69,7 @@ CREATE TABLE `preferences` (
 --
 
 CREATE TABLE `puzzle_words` (
-    `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id` int(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `word` varchar(20) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,

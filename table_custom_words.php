@@ -12,6 +12,7 @@
                 <th>Clue</th>
                 <th>Modify</th>
                 <th>Delete</th>
+                <th>Play</th>
             </tr>
             </thead>
             <tbody>
@@ -25,13 +26,14 @@
                 <a id="toggle" class="toggle-vis" data-column="5">Clue</a> -
                 <a id="toggle" class="toggle-vis" data-column="6">Modify</a> -
                 <a id="toggle" class="toggle-vis" data-column="7">Delete</a> -
+                <a id="toggle" class="toggle-vis" data-column="8">Play</a> -
             </div> <br>
-            
+
             <?php
             $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
             $sql = "SELECT * FROM custom_words";
             $result = $conn->query($sql);
-            
+
             // fetch the data from $_GLOBALS
             if ($result->num_rows > 0) {
                 // output data of each row
@@ -42,7 +44,7 @@
                     $winning_plays = $row["winning_plays"];
                     $total_plays = $row["total_plays"];
                     $clue = $row["clue"];
-                    
+
                     ?>
                     <tr>
                         <td><?php echo $id; ?></td>
@@ -53,14 +55,15 @@
                         <td><div contenteditable="true" onBlur="updateValue(this,'clue','<?php echo $id; ?>')"><?php echo $clue; ?></div></span> </td>
                         <?php echo '<td><a class="btn btn-warning btn-sm" href="update_custom_word.php?id='.$row["Id"].'">Modify</a></td>' ?>
                         <?php echo '<td><a class="btn btn-danger btn-sm" href="delete_custom_word.php?rn='.$row["Id"].'">Delete</a></td>' ?>
+                        <?php echo '<td><a href="index.php?id='.$row["Id"].'">Play</a></td>' ?>
                     </tr>
                     <?php  //end while
                 }//end if
             }//end second if
-            
+
             $conn -> close();
             ?>
-            
+
             </tbody>
         </div>
     </table>
@@ -109,61 +112,60 @@
 
 <script type="text/javascript" language="javascript">
     $(document).ready( function () {
-        
+
         $('#wordTable').DataTable( {
             dom: 'lfrtBip',
             buttons: [
                 'copy', 'excel', 'csv', 'pdf'
             ] }
         );
-        
+
         $('#wordTable thead tr').clone(true).appendTo( '#wordTable thead' );
         $('#wordTable thead tr:eq(1) th').each( function (i) {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-            
+
             $( 'input', this ).on( 'keyup change', function () {
                 if ( table.column(i).search() !== this.value ) {
                     table
-                            .column(i)
-                            .search( this.value )
-                            .draw();
+                        .column(i)
+                        .search( this.value )
+                        .draw();
                 }
             } );
         } );
-        
+
         var table = $('#wordTable').DataTable( {
             orderCellsTop: true,
             fixedHeader: true,
             retrieve: true
         } );
-        
+
     } );
-    
+
     $(document).ready(function() {
-        
+
         var table = $('#wordTable').DataTable( {
             retrieve: true,
             "scrollY": "200px",
             "paging": false
         } );
-        
+
         $('a.toggle-vis').on( 'click', function (e) {
             e.preventDefault();
-            
+
             // Get the column API object
             var column = table.column( $(this).attr('data-column') );
-            
+
             // Toggle the visibility
             column.visible( ! column.visible() );
         } );
     } );
-    
-    
+
+
     function updateValue(element,column,id){
         var value = element.innerText
         $.ajax({
-            async: false,
             url:'editable_custom_list.php',
             type: 'post',
             data:{
@@ -173,9 +175,9 @@
             },
             success:function(php_result){
                 console.log(php_result);
-                
+
             }
-            
+
         })
     }
 

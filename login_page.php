@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Animals</title>
+    <title>Wordle</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/custom_page.css">
@@ -27,12 +27,12 @@
 
 <body>
 <div class="custom_word_modal">
-    <h1>New User</h1>
+    <h1>Welcome</h1>
     <form action="index.php" method="post" onsubmit="processLogin();return false;">
         <div class="text_field">
             <input id="email_field" type="email" name="email" required>
             <span></span>
-            <label>Email Adress:</label>
+            <label>Email:</label>
         </div>
         <div class="text_field">
             <input id="password_field" type="password" name="password" required>
@@ -41,6 +41,9 @@
         </div>
         <input id="login_submit_button" type="submit" value="Submit" name="submit">
     </form>
+    <div id="login_message">
+
+    </div>
 </div>
 <script>
     let userCookieData = getCookie("userInfo");

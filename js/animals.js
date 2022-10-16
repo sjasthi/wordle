@@ -9,7 +9,7 @@ let animal = "";
 let pictureFile = "";
 let gameResult = "";
 let userRole = "";
-const admins = ["little.turtle.313@gmail.com", "bonniele1101@gmail.com", "john.phuc103@gmail.com"];
+const admins = ["little.turtle.313@gmail.com", "bonniele1101@gmail.com", "john.phuc103@gmail.com", "yahya.mohamed816@gmail.com"];
 const userInfo = [];
 const userStats = [];
 var tableData = [];
@@ -53,13 +53,13 @@ function getPuzzleWord() {
     return word;
 }
 
-function getCustomedWord() {
+function getCustomWord(pageid) {
     var word;
     $.ajax({
         async: false,
         url: "lib/helper_functions.php",
         type: "POST",
-        data: {method: "getCustomedWord"}
+        data: {method: "getCustomWord", arg: pageid}
     }).done(function(data) {
         word = data;
     });
@@ -156,9 +156,10 @@ function loadPuzzleGame() {
     }
 }
 
-function loadCustomedGame () {
-    var word = getCustomedWord();
+function loadCustomGame(pageid) {
+    var word = getCustomWord(pageid);
     fillCustomWord(word);
+    console.log(word);
     buildTables();
     const urlParams = new URLSearchParams(location.search);
     const valueIterator = urlParams.values();
@@ -175,7 +176,7 @@ function loadCustomedGame () {
 //     // first because if there is a valid tableData cookie, it should be for the current puzzleWord.
 //     buildTables();
 //     console.log (puzzleWord);
-
+//
 //     if(customWord) {
 //         const urlParams = new URLSearchParams(location.search);
 //         const valueIterator = urlParams.values();
@@ -342,8 +343,8 @@ function loadSaveData(saveData) {
             gameResult = "";
             document.getElementById("submission_panel").innerHTML =
                 '<form action="" method="post" autocomplete="off" onsubmit="processGuess();return false;">' +
-                    '<input id="input_box" type="text" name="input_box">' +
-                    '<input id="submit_button" type="submit" value="Submit" name="submit">'+
+                '<input id="input_box" type="text" name="input_box">' +
+                '<input id="submit_button" type="submit" value="Submit" name="submit">'+
                 '</form>';
 
             let userCookieData = getCookie("userInfo");
@@ -467,8 +468,8 @@ function processLogin() {
     } else {
         document.getElementById("login_message").innerHTML =
             "If you are not registered, please go to <a href='https://www.telugupuzzles.com/login.php'>www.telugupuzzles.com</a> and register!";
-            document.getElementById("email_field").value = "";
-            document.getElementById("password_field").value = "";
+        document.getElementById("email_field").value = "";
+        document.getElementById("password_field").value = "";
     }
 }
 
@@ -510,6 +511,12 @@ function updateMenus() {
             "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
             "<p id='profile_menu_4' style='color:darkGray'>Custom Word List</p>" +
             "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
+        // document.getElementById("profile_dropdown").innerHTML =
+        //     "<p id='profile_menu_1'>Access Level: ADMIN</p>" +
+        //     "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
+        //     "<a id='profile_menu_3' href='list_words.php' style='color:black'>Puzzle Word List</a>" +
+        //     "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
+        //     "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "USER") {
         document.getElementById("profile_dropdown").innerHTML =
             "<p id='profile_menu_1'>Access Level: USER</p>" +
@@ -615,7 +622,7 @@ function processGuess() {
     } else {
         matchString = checkEnglishMatch(puzzleWord, guessWord);
     }
-    
+
 
 
     // Code to take the response string from the match API, convert it to an array, sort it, and then
@@ -768,7 +775,7 @@ function setCookie(cname, cvalue, expiration) {
     } else {
         expires = expires + expiration.toUTCString();
     }
-    
+
     if (customWord) {
         const urlParams = new URLSearchParams(location.search);
         const valueIterator = urlParams.values();

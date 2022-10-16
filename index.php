@@ -19,18 +19,18 @@ require 'db_configuration.php';
             text-align: center;
             font-weight: bold;
         }
-        
+
         .dropbtn, .modalbtn {
             background-color: white;
             border-style: none;
             cursor: pointer;
         }
-        
+
         .dropdown {
             position: relative;
             display: inline-block;
         }
-        
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -39,22 +39,22 @@ require 'db_configuration.php';
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
-        
+
         .dropdown-content a, p {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
-        
+
         .dropdown-content a:hover {
             background-color: #ddd;
         }
-        
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        
+
         .dropdown:hover .dropbtn {
             background-color: #ddd;
         }
@@ -62,7 +62,7 @@ require 'db_configuration.php';
 </head>
 
 <header style="background-color:#ADD8E6">
-    
+
     <div class="header_bar">
         <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon"
@@ -132,8 +132,8 @@ require 'db_configuration.php';
         Each guess must input a valid word with the correct length.<br>
         Hit the enter or click "Submit" button to submit.<br>
                         After each guess, the color of the tiles will change to show how close your guess was to the actual word.<br><br></span></span>
-        
-        
+
+
         <h4><span style="font-size: 144%; ">English:</span></h4>
         <div>
             <div><img src="images/e_g1.png" alt="green1" style="height:50px;vertical-align:middle;"></div>
@@ -232,20 +232,20 @@ require 'db_configuration.php';
                 var myImage = canvas.toDataURL("image/png");
                 var tWindow = window.open("");
                 $(tWindow.document.body)
-                        .html("<img id='Image' src=" + myImage + "></img>")
-                        .ready(function () {
-                            tWindow.focus();
-                        });
+                    .html("<img id='Image' src=" + myImage + "></img>")
+                    .ready(function () {
+                        tWindow.focus();
+                    });
             });
         } else {
             html2canvas(document.querySelector("#animal_tile_panel")).then(canvas => {
                 var myImage = canvas.toDataURL("image/png");
                 var tWindow = window.open("");
                 $(tWindow.document.body)
-                        .html("<img id='Image' src=" + myImage + "></img>")
-                        .ready(function () {
-                            tWindow.focus();
-                        });
+                    .html("<img id='Image' src=" + myImage + "></img>")
+                    .ready(function () {
+                        tWindow.focus();
+                    });
             });
         }
     }
@@ -256,70 +256,70 @@ require 'db_configuration.php';
     <?php
     if(isset($_GET['id'])) {
     ?>
-        loadCustomedGame();
+    loadCustomGame(<?php echo(json_encode($_GET['id'])); ?>);
     <?php
     } else {
     ?>
-        loadPuzzleGame();
+    loadPuzzleGame();
     <?php
     } ?>
 
     // loadGame();
-    
-    
+
+
     /* These functions make modals appear. They weren't working from the external
     file, so I put them here. */
-    
+
     function showHelpModal() {
         document.getElementById("help_modal").style.display = "block";
     }
-    
+
     function showStatModal() {
         loadUserStats();
         document.getElementById("stat_modal").style.display = "block";
     }
-    
+
     // function showSettingsModal() {
     //     document.getElementById("settings_modal").style.display = "block";
     // }
-    
-    
+
+
     var helpModalSpan = document.getElementsByClassName("close")[0];
     var statModalSpan = document.getElementsByClassName("close")[1];
     // var settingModalSpan = document.getElementsByClassName("close")[0];
-    
+
     var helpModal = document.getElementById("help_modal");
     var statModal = document.getElementById("stat_modal");
     // var settingModal = document.getElementById("settings_modal");
-    
+
     // When the user clicks on <span> (x), close the modal
     helpModalSpan.onclick = function () {
         helpModal.style.display = "none";
     }
-    
+
     // When the user clicks on <span> (x), close the modal
     statModalSpan.onclick = function () {
         statModal.style.display = "none";
     }
-    
+
     // settingModalSpan.onclick = function () {
     //     settingModal.style.display = "none";
     // }
-    
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target === helpModal) {
             helpModal.style.display = "none";
         } else if (event.target === statModal) {
             statModal.style.display = "none";
-        } 
+        }
     }
-    
+
     // var languageElement = document.getElementById("lang");
     // var lengthElement = document.getElementById("length");
     // var attemptsElement = document.getElementById("attempts");
     //settingModal.onchange = buildTables();
-    
+
     // var applyButton = document.getElementById("apply-button");
     // applyButton.onclick = function () {
     //     resetGame();

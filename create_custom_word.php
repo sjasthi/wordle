@@ -33,12 +33,12 @@
     <h1>New Custom Word</h1>
     <form action="insert_custom_word.php" method="post">
         <div class="text_field">
-            <input id="add_word" type="text" name="word"required>
+            <input id="add_word" type="text" name="word" required>
             <span></span>
             <label>Word</label>
         </div>
         <div class="text_field">
-            <input id="add_clue" type="text" name="clue" required>
+            <input id="add_clue" type="text" name="clue">
             <span></span>
             <label>Clue</label>
         </div>
