@@ -126,9 +126,7 @@ require 'db_configuration.php';
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2></span><span style="font-family:'Arial';"><span style="font-size: 150%; ">How To Play</h2>
-        <span style="font-family:'Arial';font-size: 120%;">You can choose to play in English or Telugu.<br>
-        Set the WORDLE word length with the <img src="images/setting.png" alt="settings"
-                                                 style="width:20px;height:20px;vertical-align:middle;"> button.<br>
+        <span style="font-family:'Arial';font-size: 120%;">
         Each guess must input a valid word with the correct length.<br>
         Hit the enter or click "Submit" button to submit.<br>
                         After each guess, the color of the tiles will change to show how close your guess was to the actual word.<br><br></span></span>
@@ -187,7 +185,7 @@ require 'db_configuration.php';
             <div><img src="images/t_green.png" alt="t_green" style="height:50px;vertical-align:middle;">
             </div>
             <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
-        <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00<br>New Telugu Word at 20:00 </h5></span>
+        <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00 CST<br>New Telugu Word at 20:00 CST</h5></span>
         <p></p>
         <h4><span style="font-family:'Arial';font-size: 150%;">About Wordle:</span></h4>
         <span style="font-family:'Arial';font-size: 120%;">
