@@ -1,102 +1,133 @@
 <?php
-	require 'db_configuration.php';
+require 'db_configuration.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Animals Table</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/wordle.css">
-        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-        <script src="js/animals.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>     
-        <style>
-            td {
-                font-family: Arial, Helvetica, sans-serif;
-                border: 5px solid;
-                text-align: center;
-                font-weight: bold;
-            }
-            #title {
-                text-align: center;
-                color: darkgoldenrod;
-            }
-            #toggle {
-                color: 	#4397fb;
-            }
-            #toggle:hover {
-                color: #467bc7
-            }
-            thead input {
-                width: 100%;
-            }
-            .thumbnailSize{
-                height: 100px;
-                width: 100px;
-                transition:transform 0.25s ease;
-            }
-            .thumbnailSize:hover {
-                -webkit-transform:scale(3.5);
-                transform:scale(3.5);
-            }
-        </style>
-    </head>
+<head>
+    <title>Puzzle Words Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/wordle.css">
+    <link rel="stylesheet" href="css/custom_page.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="js/animals.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
 
-    <header style="background-color:white">
-        <div id="secondary_screen_buttons">
-            <div id="back_button">
-                <a href="index.php"><img src="images/back_icon.png" alt="Back Icon" style="Display:Block;width:70px;height:70px;"></a>
-            </div>
-            <div id="add_button">
-                <a href="create_word.php"><img src="images/add_icon.png" alt="Add Icon" style="Display:Block;width:70px;height:70px;"></a>
-            </div>
+<header>
+    <div class="header_bar">
+        <div>
+            <ul class="back" onclick="window.location.href='index.php'">
+                <li class="prev"><span></span></li>
+            </ul>
         </div>
-        <div id="game_title">
-            <p>Puzzle Word List</p>
+        <div>
+            <ul class="add" onclick="window.location.href='create_word.php'">
+                <li><span class="horizontal"></span><span class="vertical"></span></li>
+            </ul>
+        </div>
+        <div>
+            <h1 id="title">Puzzle Words List</h1>
         </div>
         <div id="secondary_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
         </div>
-    </header>
-    <body style="background-color:#f2edf2">
+    </div>
+</header>
 
-<?php $page_title = 'Animals > puzzle word list';
-        $word=$_GET['rn'];
-
-        $new_time = $_POST['new_time'];
-        $new_date = $_POST['new_date'];
-
-        $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
-
-        if ($new_time != "") {
-            $UPDATE = "UPDATE puzzle_words SET time=? WHERE word=?";            
-            $stmt = $conn->prepare($UPDATE);
-            $stmt->bind_param("ss", $new_time, $word);
-            if (! $stmt->execute()) {
-                echo $stmt->error;
-            }
-            $stmt->close();
-        } 
-        if ($new_date != "") {
-            $UPDATE = "UPDATE puzzle_words SET date=? WHERE word=?";            
-            $stmt = $conn->prepare($UPDATE);
-            $stmt->bind_param("ss", $new_date, $word);
-            if (! $stmt->execute()) {
-                echo $stmt->error;
-            }
-            $stmt->close();
-        } 
-
-        $conn->close();
-?>
+<body>
 
 <!-- Page Content -->
-<br><br>
 
-    <?php
-        include('table_puzzle_words.php');
-    ?>
-    
+<?php $page_title = 'Animals > puzzle word list';
+$id = $_GET['rn'];
+$new_word = $_POST['new_word'];
+$new_date = $_POST['new_date'];
+$new_clue = $_POST['new_clue'];
+$new_winning_plays = 0;
+$new_total_plays = 0;
+$winning_plays = 0;
+$total_plays = 0;
+
+
+$conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
+
+if($new_word != ""){
+    $UPDATE = "UPDATE puzzle_words SET word=? WHERE id=?";
+    $stmt = $conn->prepare($UPDATE);
+    $stmt->bind_param("ss", $new_word, $id);
+    if (! $stmt->execute()) {
+        echo $stmt->error;
+    }
+    $stmt->close();
+}
+
+if ($new_date != "") {
+    $SELECT = "SELECT * FROM puzzle_words WHERE date='$new_date'";
+    $result = $conn->query($SELECT);
+    $dupe = "";
+    if ($result -> num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $dupe = $row["date"];
+        }
+    }
+
+    if($dupe != $new_date) {
+        $UPDATE = "UPDATE puzzle_words SET date=? WHERE id=?";
+        $stmt = $conn->prepare($UPDATE);
+        $stmt->bind_param("ss", $new_date, $id);
+        if (!$stmt->execute()) {
+            echo $stmt->error;
+        }
+        $stmt->close();
+    } else {
+        echo "<br><p style='text-align:center'>Already another record exist with a date of {$dupe}.</p><br>";
+    }
+}
+
+if ($new_clue != "") {
+    $UPDATE = "UPDATE puzzle_words SET clue=? WHERE id=?";
+    $stmt = $conn->prepare($UPDATE);
+    $stmt->bind_param("ss", $new_clue, $id);
+    if (! $stmt->execute()) {
+        echo $stmt->error;
+    }
+    $stmt->close();
+}
+
+$sql = "SELECT * FROM custom_Words WHERE id='$id'";
+$result = $conn->query($sql);
+
+if ($result -> num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $winning_plays = $row["winning_plays"];
+        $total_plays = $row["total_plays"];
+    }
+}
+
+if($winning_plays != 0){
+    $UPDATE = "UPDATE custom_words SET winning_plays=? WHERE id=?";
+    $stmt = $conn->prepare($UPDATE);
+    $stmt->bind_param("ss", $new_winning_plays, $id);
+    if (! $stmt->execute()) {
+        echo $stmt->error;
+    }
+    $stmt->close();
+}
+
+if($total_plays != 0){
+    $UPDATE = "UPDATE custom_words SET total_plays=? WHERE id=?";
+    $stmt = $conn->prepare($UPDATE);
+    $stmt->bind_param("ss", $new_total_plays, $id);
+    if (! $stmt->execute()) {
+        echo $stmt->error;
+    }
+    $stmt->close();
+}
+
+$conn->close();
+include('table_puzzle_words.php');
+?>
+
 </body>
 </html>

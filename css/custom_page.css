@@ -108,23 +108,24 @@
 }
 
 #title{
-    margin: 0;
+    margin-top: 20px;
     position: absolute;
-    top: 12px;
-    left: 35%;
+    left: 37%;
     align-content: center;
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 60px;
     font-weight: bold;
     letter-spacing: 2px;
+    text-align: center;
+    color: darkgoldenrod;
 }
 
 #secondary_screen_logo{
     margin: 0;
     position: absolute;
     top: 10px;
-    right: 1%;
+    left: 89%;
     display: flex;
 }
 
@@ -172,9 +173,10 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 425px;
     background: white;
     border-radius: 10px;
+    padding: 0px 0px 14px;
 }
 
 .custom_word_modal h1{
@@ -225,7 +227,7 @@ form .text_field{
 }
 
 .text_field input{
-    width: 100%;
+    width: 70%;
     padding: 0 50px;
     height: 40px;
     font-size: 16px;
@@ -284,4 +286,17 @@ input[type="submit"]:hover{
     background: #6aaa64;
     border-color: #adadad;
     transition: .5s;
+}
+
+#login_message{
+    text-align: center;
+}
+
+.lang{
+    margin-left: 11%;
+}
+
+.input_label{
+    margin-left: 3%;
+    font-family: Arial, Helvetica, sans-serif;
 }

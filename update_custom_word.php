@@ -52,17 +52,17 @@ if (isset($_GET['id'])){
     <h1>Modify Custom Word</h1>
     <form action="update_custom.php?rn=<?php echo $_GET['id'] ?>" method="POST" autocomplete="off">
         <div class="text_field">
-            <input placeholder="<?php echo $word ?>" type="text" name="word" required>
+            <input placeholder="<?php echo $word ?>" type="text" name="word">
             <span></span>
             <label>Word</label>
         </div>
         <div class="text_field">
-            <input placeholder="<?php echo $email ?>" type="email" name="email" required>
+            <input placeholder="<?php echo $email ?>" type="email" name="email">
             <span></span>
             <label>Email</label>
         </div>
         <div class="text_field">
-            <input placeholder="<?php echo $clue ?>" type="text" name="clue" required>
+            <input placeholder="<?php echo $clue ?>" type="text" name="clue">
             <span></span>
             <label>Clue</label>
         </div>

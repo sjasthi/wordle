@@ -19,16 +19,16 @@ header {
     height: 80px;
 }
 
-#game_title {
-    position: absolute;
-    margin: 20px 20px 20px 380px;
-    width: 1150px;
-    height: 80px;
-    text-align: center;
-    font-size: 64px;
-    font-weight: bold;
-    color: white;
-}
+/*#game_title {*/
+/*    position: absolute;*/
+/*    margin: 20px 20px 20px 380px;*/
+/*    width: 1150px;*/
+/*    height: 80px;*/
+/*    text-align: center;*/
+/*    font-size: 64px;*/
+/*    font-weight: bold;*/
+/*    color: white;*/
+/*}*/
 
 #menu_buttons {
     position: absolute;
@@ -183,18 +183,20 @@ header {
     display:block;
     margin-top: 650px;
     margin-left: 650px;
+    margin-bottom: 50px;
     width: 825px;
     height: 120px;
     white-space: nowrap;
 }
 
-form {
+/* form {
     margin: 20px;
-}
+} */
 
 #input_box {
     position: absolute;
-    padding-left: 20px;
+    margin-left: 20px;
+    margin-top: 25px;
     width: 585px;
     height: 70px;
     font-size: 48px;
@@ -203,7 +205,7 @@ form {
 
 #submit_button {
     position: absolute;
-    margin-left: 615px;
+    margin-left: 625px;
     width: 175px;
     height: 70px;
     font-size: 24px;
