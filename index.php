@@ -126,9 +126,7 @@ require 'db_configuration.php';
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2></span><span style="font-family:'Arial';"><span style="font-size: 150%; ">How To Play</h2>
-        <span style="font-family:'Arial';font-size: 120%;">You can choose to play in English or Telugu.<br>
-        Set the WORDLE word length with the <img src="images/setting.png" alt="settings"
-                                                 style="width:20px;height:20px;vertical-align:middle;"> button.<br>
+        <span style="font-family:'Arial';font-size: 120%;">
         Each guess must input a valid word with the correct length.<br>
         Hit the enter or click "Submit" button to submit.<br>
                         After each guess, the color of the tiles will change to show how close your guess was to the actual word.<br><br></span></span>
