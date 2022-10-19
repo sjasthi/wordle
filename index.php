@@ -185,7 +185,7 @@ require 'db_configuration.php';
             <div><img src="images/t_green.png" alt="t_green" style="height:50px;vertical-align:middle;">
             </div>
             <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
-        <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00<br>New Telugu Word at 20:00 </h5></span>
+        <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00 CST<br>New Telugu Word at 20:00 CST</h5></span>
         <p></p>
         <h4><span style="font-family:'Arial';font-size: 150%;">About Wordle:</span></h4>
         <span style="font-family:'Arial';font-size: 120%;">
