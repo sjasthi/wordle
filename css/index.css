@@ -9,9 +9,15 @@ p, div, pre {
 
 header {
     width: 100%;
-    height: 120px;
+    height: 100px;
 }
-
+.header_bar{
+    width: 100%;
+    height: 100px;
+    background: #ADD8E6;
+    position:relative;
+    
+}
 #main_screen_logo {
     position: absolute;
     margin: 20px;
@@ -21,7 +27,7 @@ header {
 
 /*#game_title {*/
 /*    position: absolute;*/
-/*    margin: 20px 20px 20px 380px;*/
+/*    margin: 15px 20px 20px 380px;*/
 /*    width: 1150px;*/
 /*    height: 80px;*/
 /*    text-align: center;*/
@@ -32,15 +38,17 @@ header {
 
 #menu_buttons {
     position: absolute;
-    margin: 20px 20px 20px 1450px;
+    margin: 15px 10px 20px 1450px;
     width: 1000px;
-    height: 80px;
+    height: 70px;
     white-space: nowrap;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
 #setting_button {
     display:inline-block;
-    margin: 5px 5px 5px 0px;
+    margin: 3px 5px 5px 0px;
     width: 70px;
     height: 70px;
     border: 2px solid black;
@@ -49,7 +57,7 @@ header {
 
 #help_button {
     display:inline-block;
-    margin: 5px 5px 5px 0px;
+    margin: 3px 5px 5px 0px;
     width: 70px;
     height: 70px;
     border: 2px solid black;
@@ -58,7 +66,7 @@ header {
 
 #stat_button {
     display:inline-block;
-    margin: 5px 5px 5px 0px;
+    margin: 3px 5px 5px 0px;
     width: 70px;
     height: 70px;
     border: 2px solid black;
@@ -67,7 +75,7 @@ header {
 
 #profile_button {
     display:inline-block;
-    margin: 5px 5px 5px 0px;
+    margin: 3px 5px 5px 0px;
     width: 70px;
     height: 70px;
     border: 2px solid black;
@@ -446,6 +454,299 @@ header {
     -webkit-user-select: none;
     touch-action: manipulation;
 }
+.back{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.back li{
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    background: #787c7e;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+.back li:hover{
+    background: #72a3b3;
+}
+
+.back li span{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #FBF6F0;
+    transition: .5s;;
+}
+
+.back li.prev span{
+    top: 50%;
+    left: 35%;
+    transform: translateY(-50%) rotate(-45deg);
+    border-right: none;
+    border-bottom: none;
+}
+
+.back li.prev:hover span{
+    left: 16%;
+}
+
+.back li.prev span:before{
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background: #FBF6F0;
+    transform-origin: left;
+    transform: rotate(45deg) translate(-2px, -1px) scaleX(0);
+}
+
+.back li.prev:hover span:before{
+    transform: rotate(45deg) translate(-2px, -1px) scaleX(1);
+}
+
+.add{
+    position: absolute;
+    top: 50px;
+    left: 140px;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.add li{
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    background: #787c7e;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+.add li:hover{
+    background: #72a3b3;
+}
+
+.add li span.horizontal{
+    position: absolute;
+    width: 50px;
+    height: 8px;
+    background: #FBF6F0;
+    top: 44%;
+    left: 19%;
+}
+
+.add li span.vertical{
+    position: absolute;
+    width: 8px;
+    height: 50px;
+    background: #FBF6F0;
+    top: 19%;
+    left: 45%;
+}
+
+#title{
+    margin-top: 20px;
+    position: absolute;
+    left: 37%;
+    align-content: center;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    color: darkgoldenrod;
+}
+
+#secondary_screen_logo{
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 89%;
+    display: flex;
+}
+
+.custom_word_body{
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 5px solid;
+    text-align: center;
+    font-weight: bold;
+}
+
+#toggle {
+    color: 	#4397fb;
+}
+
+#toggle:hover {
+    color: #467bc7
+}
+
+thead input {
+    width: 100%;
+}
+
+.thumbnailSize{
+    height: 100px;
+    width: 100px;
+    transition:transform 0.25s ease;
+}
+
+.thumbnailSize:hover {
+    -webkit-transform:scale(3.5);
+    transform:scale(3.5);
+}
+
+body{
+    background-color: #E4F2F7;
+}
+
+.custom_word_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 425px;
+    background: white;
+    border-radius: 10px;
+    padding: 0px 0px 14px;
+}
+
+.custom_word_modal h1{
+    text-align: center;
+    color: #787c7e;
+    padding: 12px 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.custom_word_modal form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+#delete_custom_word{
+    text-align: center;
+    color: #787c7e;
+    padding: 0 0 20px 0;
+}
+
+#error_custom_word{
+    text-align: center;
+    color: #787c7e;
+    padding: 0 0 20px 0;
+}
+
+.close {
+    color: #787c7e;
+    float: right;
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form .text_field{
+    position: relative;
+    border-bottom: 2px solid #787c7e;
+    margin: 30px 0 10px;
+}
+
+.text_field input{
+    width: 70%;
+    padding: 0 50px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.text_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #787c7e;
+    transform: translateY(-70%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.text_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #6aaa64;
+    transition: .5s;
+}
+
+.text_field input:focus ~ label,
+.text_field input:valid ~ label{
+    top: -20px;
+    color: #6aaa64;
+}
+
+.text_field input:focus ~ span::before,
+.text_field input:valid ~ span::before{
+    width: 100%;
+}
+
+input[type="submit"]{
+    margin: 30px 0;
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #787c7e;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover{
+    background: #6aaa64;
+    border-color: #adadad;
+    transition: .5s;
+}
+
+#login_message{
+    text-align: center;
+}
+
+.lang{
+    margin-left: 11%;
+}
+
+.input_label{
+    margin-left: 3%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
 
 .apply:hover {
     background-color: #1e293b;
@@ -457,4 +758,50 @@ header {
         font-size: 1.125rem;
         padding: 1rem 2rem;
     }
+}
+@media only screen and (max-width:700px){
+    #menu_buttons{
+        width: 100%;
+        background: #467bc7;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        z-index: 2;
+    }
+   
+    #game_panel{
+        width: 100%;
+        position: absolute;
+        flex-direction: column;
+        top: 200px;
+        right: 20px;
+        text-align: center;
+    }
+    #submission_panel{
+        width: 100%;
+        position: absolute;
+        flex-direction: column;
+        top: 200px;
+        right: 0;
+        margin-top: 600px ;
+        margin-left: 50px;
+    }
+    #clue_box{
+        width: 50%;
+        position: absolute;
+        top 200px;
+        margin: 850px 70px 50px 90px;
+        float: left;
+
+    }
+    #character_table{
+        width: 100%;
+        float: none;
+    }
+    
+    #game_message{
+        width: 100%;
+        float: none;
+    }
+    
 }
