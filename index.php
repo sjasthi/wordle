@@ -222,32 +222,6 @@ require 'db_configuration.php';
     </div>
 </div>
 
-<script>
-    // Javascript function to take a screenshot of the completed game
-    function screenshot() {
-        if (userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-            html2canvas(document.querySelector("#game_panel")).then(canvas => {
-                var myImage = canvas.toDataURL("image/png");
-                var tWindow = window.open("");
-                $(tWindow.document.body)
-                    .html("<img id='Image' src=" + myImage + "></img>")
-                    .ready(function () {
-                        tWindow.focus();
-                    });
-            });
-        } else {
-            html2canvas(document.querySelector("#animal_tile_panel")).then(canvas => {
-                var myImage = canvas.toDataURL("image/png");
-                var tWindow = window.open("");
-                $(tWindow.document.body)
-                    .html("<img id='Image' src=" + myImage + "></img>")
-                    .ready(function () {
-                        tWindow.focus();
-                    });
-            });
-        }
-    }
-</script>
 
 <script>
     // Javascript function to pull puzzle_word details and build UI tables

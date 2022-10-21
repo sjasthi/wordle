@@ -3,6 +3,7 @@ let cellColor = ""
 let puzzleWordLanguage = "";
 let puzzleWordLength;
 let customWord = false;
+let customWordId = 0;
 let guessLimit;
 let numberOfAttempts = 1;
 let animal = "";
@@ -14,10 +15,13 @@ const userInfo = [];
 const userStats = [];
 var tableData = [];
 
+
+
 /* Function which fills word with input. Used for custom plays
 */
-function fillCustomWord(word) {
+function fillCustomWord(word, id) {
     puzzleWord = word;
+    customWordId = id;
     customWord = true;
 }
 
@@ -66,69 +70,8 @@ function getCustomWord(pageid) {
     return word;
 }
 
-// function resetGame() {
-//     let language = $( "#lang option:selected" ).text();
-//     let cookieWord = "word" + language;
-//     let cookieExpiration = generateCookieExpiration();
-//     word = getCookie (cookieWord);
-//     if (word == "") {
-//         word = getPuzzleWord(language);
-//         setCookie(cookieWord, word, cookieExpiration);
-//     }
-//     setCookie ("currentLanguage", language, cookieExpiration);
-// }
 
 function loadPuzzleGame() {
-    // var language = getCookie ("currentLanguage");
-    // var word = "";
-    // var cookieData = "";
-    // var cookieWord = "";
-
-    // //If cookies exist
-    // if(language != "") {
-    //     console.log("Cookie is NOT Empty!")
-    //     cookieData = "table" + language;
-    //     cookieWord = "word" + language;
-    //     word = getCookie (cookieWord);
-    //     console.log(word);
-    //     let saveData = getCookie(cookieData);
-    //     // console.log(saveData);
-    //     fillPuzzleWord (word);
-    //     buildTables();
-    //     if (saveData != "") {
-    //         loadSaveData(saveData);
-    //     } else {
-    //         tableData = [];
-    //         numberOfAttempts = 1;
-    //         gameResult = "";
-    //         document.getElementById("submission_panel").innerHTML =
-    //             '<form action="" method="post" autocomplete="off" onsubmit="processGuess();return false;">' +
-    //                 '<input id="input_box" type="text" name="input_box">' +
-    //                 '<input id="submit_button" type="submit" value="Submit" name="submit">'+
-    //             '</form>';
-    //     }
-    // } else {
-    //     var language = $( "#lang option:selected" ).text();
-    //     word = getPuzzleWord(language);
-
-    //     if (word == null) {
-    //         alert ("No word in " + language + " for today!");
-    //     } else {
-    //         fillPuzzleWord (word);
-
-    //         //Saved choosen word to cookie
-    //         cookieData = "table" + language;
-    //         cookieWord = "word" + language;
-    //         let cookieExpiration = generateCookieExpiration();
-    //         setCookie(cookieWord, puzzleWord, cookieExpiration);
-    //         setCookie ("currentLanguage", language, cookieExpiration);
-    //         var expireDate = new Date();
-    //         setCookie(cookieData, "", expireDate);
-
-    //         buildTables();
-    //     }
-    // }
-
     var word = getCookie ("savedWord");
     //If cookies exist
     if(word != "") {
@@ -158,7 +101,7 @@ function loadPuzzleGame() {
 
 function loadCustomGame(pageid) {
     var word = getCustomWord(pageid);
-    fillCustomWord(word);
+    fillCustomWord(word, pageid);
     console.log(word);
     buildTables();
     const urlParams = new URLSearchParams(location.search);
@@ -171,28 +114,6 @@ function loadCustomGame(pageid) {
     }
 }
 
-// function loadGame() {
-//     // Check for a tableData cookie. The function builds an empty table based on the puzzleWord in the database
-//     // first because if there is a valid tableData cookie, it should be for the current puzzleWord.
-//     buildTables();
-//     console.log (puzzleWord);
-//
-//     if(customWord) {
-//         const urlParams = new URLSearchParams(location.search);
-//         const valueIterator = urlParams.values();
-//         let id = valueIterator.next().value;
-//         let cname = "customTableData" + id;
-//         let saveData = getCookie(cname);
-//         if(saveData != "") {
-//             loadSaveData(saveData);     // If cookie exists, call loadSaveData to re-create tables
-//         }
-//     } else {
-//         let saveData = getCookie("tableData");
-//         if(saveData != "") {
-//             loadSaveData(saveData);     // If cookie exists, call loadSaveData to re-create tables
-//         }
-//     }
-// }
 
 /* Function to pull puzzleWord details and build UI tables. This function uses ajax to
 call methods in helper_functions.php to get puzzleWord details from the database. Then it
@@ -374,11 +295,6 @@ function loadSaveData(saveData) {
     if(customWord) {
         setCookie("customTableData", tableDataString, 1);
     } else {
-        // let cookieExpiration = generateCookieExpiration();
-        // var cookieData = "table" + puzzleWordLanguage;
-        // var cookieWord = "word" + puzzleWordLanguage;
-        // setCookie(cookieData, tableDataString, cookieExpiration);
-        // setCookie(cookieWord, puzzleWord, cookieExpiration);
         let cookieExpiration = generateCookieExpiration();
         setCookie("tableData", tableDataString, cookieExpiration);
         setCookie("savedWord", puzzleWord, cookieExpiration);
@@ -708,9 +624,6 @@ function processGuess() {
         if(customWord) {
             setCookie("customTableData", tableDataString, 1);
         } else {
-            // let cookieExpiration = generateCookieExpiration();
-            // var cookieData = "table" + puzzleWordLanguage;
-            // setCookie(cookieData, tableDataString, cookieExpiration);
             let cookieExpiration = generateCookieExpiration();
             setCookie("tableData", tableDataString, cookieExpiration);
         }
@@ -752,15 +665,6 @@ function selectColor(language, id) {
     }
 }
 
-// function wordRelatedData (cname) {
-//     if ((cname == "tableEnglish") || (cname == "wordEnglish"))
-//         return true;
-//     if ((cname == "tableTelugu") || (cname == "wordTelugu"))
-//         return true;
-//     if (cname == "currentLanguage")
-//         return true
-//     return false;
-// }
 
 // tableData cookies are created with an expiration that is a timestamp for a specific date/time (the time when
 // that puzzle word "expires"). Other cookies are created with an expiration that is a number of days from
@@ -959,16 +863,6 @@ function loadClue() {
  * @param word
  * @returns {*[]}
  */
-// function findMatchIndexes(letter, word) {
-//     let lst = word.split("");
-//     let output = [];
-//     for(let i= 0; i<word.length; i++) {
-//         if(letter == lst[i]) {
-//             output.push(i);
-//         }
-//     }
-//     return output;
-// }
 
 function checkEnglishMatch(actual, guess) {
     let matchArray = new Array(actual.length).fill("5");
@@ -1058,4 +952,54 @@ function checkTeluguhMatch(logicalActual, baseActual, logicalGuess, baseGuess) {
         }
     }
     return matchArray.join("");
+}
+
+function getPuzzleId(word) {
+    $.ajax({
+        async: false,
+        url: "lib/helper_functions.php",
+        type: "POST",
+        data: {method: "getId", arg: word}
+    }).done(function(data) {
+        id = data;
+    });
+    return id;
+}
+
+function generateScreenShot() {
+    let tableImage = document.querySelector("#game_panel").cloneNode(true);
+    let numberOfChar = tableImage.querySelectorAll("td").length;
+    for (var i = 0; i < numberOfChar; i++) {
+        tableImage.querySelectorAll("td")[i].innerHTML = "";
+    }
+    tableImage.querySelector ("#character_table").setAttribute("style", "position: absolute; margin-left: 200px;padding-bottom: 200px"); 
+    let myScreenshot = tableImage;
+
+    let wordId = 0;
+    if (customWord) {
+        wordId = customWordId;
+    } else {
+        wordId = getPuzzleId(puzzleWord);
+    }
+    // console.log(getPuzzleId(puzzleWord));
+
+    let myHTMLString = "<h1 style = 'text-align: center;'>I solved wordle #" + wordId + " today on telugupuzzles.com!</h1>";
+    myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
+
+    return myScreenshot;
+}
+
+function screenshot() {
+    let myScreenshot = generateScreenShot();
+    document.body.appendChild(myScreenshot);
+    html2canvas(myScreenshot).then(canvas => {
+        var myImage = canvas.toDataURL("image/png");
+        var tWindow = window.open("");
+        $(tWindow.document.body)
+            .html("<img id='Image' src=" + myImage + "></img>")
+            .ready(function () {
+                tWindow.focus();
+            });
+    });
+    myScreenshot.remove();
 }
