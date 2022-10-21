@@ -122,7 +122,7 @@ function getWord() {
     $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
     if(date("H") >= 8 && date("H") < 20) {
         $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '08:00:00'";
-    } else if (date("H" < 8)) {
+    } else if (date("H") < 8) {
         $date = date("Y-m-d", strtotime("yesterday"));
         $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
     } else {
@@ -140,9 +140,9 @@ function getPuzzleClue($word) {
     $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
     if(date("H") >= 8 && date("H") < 20) {
         $sql = "SELECT clue FROM puzzle_words WHERE date = '$date' AND time = '08:00:00' AND word = '$word'";
-    } else if (date("H" < 8)) {
+    } else if (date("H") < 8) {
         $date = date("Y-m-d", strtotime("yesterday"));
-        $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
+        $sql = "SELECT clue FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
     } else {
         $sql = "SELECT clue FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
     }
@@ -251,7 +251,7 @@ function getPuzzleWordList() {
     $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
     if(date("H") >= 8 && date("H") < 20) {
         $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '08:00:00'";
-    } else if (date("H" < 8)) {
+    } else if (date("H") < 8) {
         $date = date("Y-m-d", strtotime("yesterday"));
         $sql = "SELECT word FROM puzzle_words WHERE date = '$date' AND time = '20:00:00'";
     } else {
@@ -283,6 +283,24 @@ function getCustomWord($pageid) {
     $conn->close();
 
     return $customWord;
+}
+
+function getId($word) {
+    date_default_timezone_set('America/Chicago');
+    $date = date("Y-m-d");
+    $conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
+    if(date("H") >= 8 && date("H") < 20) {
+        $sql = "SELECT id FROM puzzle_words WHERE date = '$date' AND time = '08:00:00' AND word = '$word'";
+    } else if (date("H") < 8) {
+        $date = date("Y-m-d", strtotime("yesterday"));
+        $sql = "SELECT id FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
+    } else {
+        $sql = "SELECT id FROM puzzle_words WHERE date = '$date' AND time = '20:00:00' AND word = '$word'";
+    }
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $conn->close();
+    return $row['id'];
 }
 
 ?>
