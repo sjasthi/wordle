@@ -603,14 +603,14 @@ function processGuess() {
                     '<input id="input_box" type="text" name="input_box" disabled>' +
                     '<input id="submit_button" type="submit" value="Submit" name="submit" style="background-color:grey" disabled></form>';
             } else {
-                if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-                    document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-                        "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
-                        "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
-                } else {
-                    document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-                        "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
-                }
+                // if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
+                //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+                //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
+                //         "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
+                // } else {
+                //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+                //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
+                // }
             }
         }
         // tableData array is used to store the characters for character_table and the integers that are used
@@ -982,8 +982,12 @@ function generateScreenShot() {
         wordId = getPuzzleId(puzzleWord);
     }
     // console.log(getPuzzleId(puzzleWord));
-
-    let myHTMLString = "<h1 style = 'text-align: center;'>I solved wordle #" + wordId + " today on telugupuzzles.com!</h1>";
+    let myHTMLString;
+    if (gameResult == "win") {
+        myHTMLString = "<h1 style = 'text-align: center;'>I solved wordle #" + wordId + " today on telugupuzzles.com!</h1>";
+    } else {
+        myHTMLString = "<h1 style = 'text-align: center;'>I played wordle #" + wordId + " today on telugupuzzles.com!</h1>";
+    }
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
 
     return myScreenshot;
