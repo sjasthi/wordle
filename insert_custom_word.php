@@ -13,27 +13,54 @@ require 'db_configuration.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<header style="background-color:white">
+<header>
     <div class="header_bar">
-        <div>
-            <ul class="back" onclick="window.location.href='index.php'">
-                <li class="prev"><span></span></li>
-            </ul>
-        </div>
-        <div>
-            <ul class="add" onclick="window.location.href='create_custom_word.php'">
-                <li><span class="horizontal"></span><span class="vertical"></span></li>
-            </ul>
-        </div>
-        <div>
-            <h1 id="title">Custom Word List</h1>
-        </div>
-        <div id="secondary_screen_logo">
+        <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
+        </div>
+        <div>
+            <h1 id="title" >Wordle</h1>
+        </div>
+        <div id="menu_buttons">
+            <div id="help_button">
+                <button onclick="showHelpModal()" class="modalbtn">
+                    <img class="img_button" src="images/icons-help.png" alt="Help Icon">
+                </button>
+            </div>
+            <div id="stat_button">
+                <button onclick="showStatModal()" class="modalbtn">
+                    <img class="img_button" src="images/icons-statistic.png" alt="Stat Icon">
+                </button>
+            </div>
+            <div id="profile_button" class="dropdown">
+                <button class="dropbtn">
+                    <img class="img_button" src="images/icons-user.png" alt="Profile Icon">
+                </button>
+                <div id="profile_dropdown" class="dropdown-content">
+                    <p id="profile_menu_1">Access Level: GUEST</p>
+                    <p id="profile_menu_2" style="color:darkGray">Create Custom Word</p>
+                    <p id="profile_menu_3" style="color:darkGray">Puzzle Word List</p>
+                    <p id="profile_menu_4" style="color:darkGray">Custom Word List</p>
+                    <a id="profile_menu_5" href="login_page.php">Log In</a>
+                </div>
+            </div>
         </div>
     </div>
 </header>
-<body>
+<body onload=updateMenus()>
+
+<div class="left_bar">
+    <div>
+        <ul class="back" onclick="window.location.href='index.php'">
+            <li class="prev"><span></span></li>
+        </ul>
+    </div>
+    <div>
+        <ul class="add" onclick="window.location.href='create_custom_word.php'">
+            <li><span class="horizontal"></span><span class="vertical"></span></li>
+        </ul>
+    </div>
+</div>
 
 <?php $page_title = 'Animals > custom word list';
 ?>
