@@ -254,8 +254,7 @@ function loadSaveData(saveData) {
         if(numberOfWords == guessLimit) {
             gameResult = "loss";
             document.getElementById("game_message").innerHTML =
-                "<p></p><p>Sorry! You have run out of guesses...</p><p>The puzzle word was: " + puzzleWord +
-                "</p><p>Click <a href='javascript:screenshot();'>here</a> to share your puzzle on social media.</p>";
+                "<p></p><p>Sorry! You have run out of guesses...</p><p>Click <a href='javascript:screenshot();'>here</a> to share your puzzle on social media.</p>";
             document.getElementById("submission_panel").innerHTML =
                 '<form action="" method="post" autocomplete = "off" onsubmit="processGuess();return false;">' +
                 '<input id="input_box" type="text" name="input_box" disabled>' +
@@ -595,8 +594,10 @@ function processGuess() {
                     updateStats(gameResult);
                 }
                 document.getElementById("game_message").innerHTML =
-                    "<p></p><p>Sorry! You have run out of guesses...</p><p>The puzzle word was: " + puzzleWord +
-                    "</p><p>Click <a href='javascript:screenshot();'>here</a> to share your puzzle on social media.</p>";
+                    "<p></p>" +
+                    // "<p>Sorry! You have run out of guesses...</p><p>The puzzle word was: " + puzzleWord +
+                    // "</p>" +
+                    "<p>Click <a href='javascript:screenshot();'>here</a> to share your puzzle on social media.</p>";
 
                 document.getElementById("submission_panel").innerHTML =
                     '<form action="" method="post" autocomplete = "off" onsubmit="processGuess();return false;">' +
