@@ -426,12 +426,6 @@ function updateMenus() {
             "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
             "<p id='profile_menu_4' style='color:darkGray'>Custom Word List</p>" +
             "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
-        // document.getElementById("profile_dropdown").innerHTML =
-        //     "<p id='profile_menu_1'>Access Level: ADMIN</p>" +
-        //     "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
-        //     "<a id='profile_menu_3' href='list_words.php' style='color:black'>Puzzle Word List</a>" +
-        //     "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
-        //     "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "USER") {
         document.getElementById("profile_dropdown").innerHTML =
             "<p id='profile_menu_1'>Access Level: USER</p>" +

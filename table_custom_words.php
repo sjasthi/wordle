@@ -1,6 +1,8 @@
 
 <div id="customerTableView">
-    <table class="display" id="wordTable" style="width:100%; border: 1px solid; border-collapse: collapse;">
+    <h1 class="table_title">Custom Word List</h1>
+    <hr class="title_border">
+    <table class="display" id="wordTable" style="border: 1px solid; border-collapse: collapse;">
         <div class="table responsive">
             <thead>
             <tr>
@@ -16,7 +18,7 @@
             </tr>
             </thead>
             <tbody>
-            <div>
+            <div class="toggle_columns">
                 <strong> Toggle column: </strong>
                 <a id="toggle" class="toggle-vis" data-column="0">ID</a> -
                 <a id="toggle" class="toggle-vis" data-column="1">Word</a> -

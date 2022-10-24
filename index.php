@@ -12,79 +12,30 @@ require 'db_configuration.php';
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/animals.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <style>
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            border: 2px solid;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .dropbtn, .modalbtn {
-            background-color: white;
-            border-style: none;
-            cursor: pointer;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a, p {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-            background-color: #ddd;
-        }
-    </style>
 </head>
 
 <header style="background-color:#ADD8E6">
-
     <div class="header_bar">
         <div id="main_screen_logo">
-            <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon"
-                                                     style="height:80px;width:auto;"></a>
+            <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
         </div>
         <div>
-            <h1 id="title" style="left: 42%">Wordle</h1>
+            <h1 id="title" >Wordle</h1>
         </div>
         <div id="menu_buttons">
             <div id="help_button">
                 <button onclick="showHelpModal()" class="modalbtn">
-                    <img src="images/icons-help.png" alt="Help Icon" style="Display:Block;width:70px;height:70px;">
+                    <img class="img_button" src="images/icons-help.png" alt="Help Icon">
                 </button>
             </div>
             <div id="stat_button">
                 <button onclick="showStatModal()" class="modalbtn">
-                    <img src="images/icons-statistic.png" alt="Stat Icon" style="Display:Block;width:70px;height:70px;">
+                    <img class="img_button" src="images/icons-statistic.png" alt="Stat Icon">
                 </button>
             </div>
             <div id="profile_button" class="dropdown">
                 <button class="dropbtn">
-                    <img src="images/icons-user.png" alt="Profile Icon" style="Display:Block;width:70px;height:70px;">
+                    <img class="img_button" src="images/icons-user.png" alt="Profile Icon">
                 </button>
                 <div id="profile_dropdown" class="dropdown-content">
                     <p id="profile_menu_1">Access Level: GUEST</p>
@@ -254,7 +205,6 @@ require 'db_configuration.php';
     // function showSettingsModal() {
     //     document.getElementById("settings_modal").style.display = "block";
     // }
-
 
     var helpModalSpan = document.getElementsByClassName("close")[0];
     var statModalSpan = document.getElementsByClassName("close")[1];
