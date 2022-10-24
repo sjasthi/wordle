@@ -18,7 +18,9 @@
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
         </div>
         <div>
-            <h1 id="title" >Wordle</h1>
+            <button onclick="window.location.href='index.php'">
+                <h1 id="title" style="left: 33.5%">Create Custom Word</h1>
+            </button>
         </div>
         <div id="menu_buttons">
             <div id="help_button">
