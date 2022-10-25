@@ -85,4 +85,37 @@
     </form>
 </div>
 </body>
+
+<!--  Help Modal      -->
+<?php $page_title = 'wordle > help modal';
+# Page Content
+include('wordle_help_modal.php');
+?>
+
+<!--   Stat Modal   -->
+<?php $page_title = 'wordle > stats modal';
+# Page Content
+include('statistics_modal.php');
+?>
+
+
+<script>
+    function showHelpModal() {
+        document.getElementById("help_modal").style.display = "block";
+    }
+    
+    function showStatModal() {
+        loadUserStats();
+        document.getElementById("stat_modal").style.display = "block";
+    }
+    
+    window.onclick = function (event) {
+        if (event.target === helpModal) {
+            helpModal.style.display = "none";
+        } else if (event.target === statModal) {
+            statModal.style.display = "none";
+        }
+    }
+</script>
+
 </html>

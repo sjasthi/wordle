@@ -17,7 +17,8 @@ require 'db_configuration.php';
 <header>
     <div class="header_bar">
         <div id="main_screen_logo">
-            <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
+            <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon"
+                                                     style="height:80px;width:auto;"></a>
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
@@ -52,42 +53,54 @@ require 'db_configuration.php';
 </header>
 <body onload=updateMenus()>
 
-    <div class="left_bar">
-        <div>
-            <ul class="back" onclick="window.location.href='index.php'">
-                <li class="prev"><span></span></li>
-            </ul>
-        </div>
-        <div>
-            <ul class="add" onclick="window.location.href='create_custom_word.php'">
-                <li><span class="horizontal"></span><span class="vertical"></span></li>
-            </ul>
-        </div>
+<div class="left_bar">
+    <div>
+        <ul class="back" onclick="window.location.href='index.php'">
+            <li class="prev"><span></span></li>
+        </ul>
     </div>
+    <div>
+        <ul class="add" onclick="window.location.href='create_custom_word.php'">
+            <li><span class="horizontal"></span><span class="vertical"></span></li>
+        </ul>
+    </div>
+</div>
 
 <?php $page_title = 'Animals > custom word list';
 # Page Content
 include('table_custom_words.php');
 ?>
 
-    <script>
-        function showHelpModal() {
-            document.getElementById("help_modal").style.display = "block";
-        }
+<!--  Help Modal      -->
+<?php $page_title = 'wordle > help modal';
+# Page Content
+include('wordle_help_modal.php');
+?>
 
-        function showStatModal() {
-            loadUserStats();
-            document.getElementById("stat_modal").style.display = "block";
-        }
+<!--   Stat Modal   -->
+<?php $page_title = 'wordle > stats modal';
+# Page Content
+include('statistics_modal.php');
+?>
 
-        window.onclick = function (event) {
-            if (event.target === helpModal) {
-                helpModal.style.display = "none";
-            } else if (event.target === statModal) {
-                statModal.style.display = "none";
-            }
+<script>
+    function showHelpModal() {
+        document.getElementById("help_modal").style.display = "block";
+    }
+    
+    function showStatModal() {
+        loadUserStats();
+        document.getElementById("stat_modal").style.display = "block";
+    }
+    
+    window.onclick = function (event) {
+        if (event.target === helpModal) {
+            helpModal.style.display = "none";
+        } else if (event.target === statModal) {
+            statModal.style.display = "none";
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>

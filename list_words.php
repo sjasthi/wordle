@@ -69,8 +69,20 @@ require 'db_configuration.php';
     <?php $page_title = 'Animals > puzzle word list';
     include('table_puzzle_words.php');
     ?>
+    <!-- Page Content -->
+    
+    <!--  Help Modal      -->
+    <?php $page_title = 'wordle > help modal';
+    # Page Content
+    include('wordle_help_modal.php');
+    ?>
 
-<!-- Page Content -->
+    <!--   Stat Modal   -->
+    <?php $page_title = 'wordle > stats modal';
+    # Page Content
+    include('statistics_modal.php');
+    ?>
+
 
 <script>
     function showHelpModal() {
