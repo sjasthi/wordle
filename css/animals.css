@@ -41,7 +41,8 @@ td {
 .dropdown-content {
     display: none;
     position: absolute;
-    right: 1%;
+    top: 71px;
+    right: 3%;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -418,41 +419,41 @@ td {
     border-color: goldenrod;
 }
 
-#email_field {
-    margin: 20px;
-    padding-left: 10px;
-    height: 50px;
-    width: 400px;
-    font-size: 24px;
-}
+/*#email_field {*/
+/*    margin: 20px;*/
+/*    padding-left: 10px;*/
+/*    height: 50px;*/
+/*    width: 400px;*/
+/*    font-size: 24px;*/
+/*}*/
 
-#password_field {
-    margin: 20px;
-    padding-left: 10px;
-    height: 50px;
-    width: 400px;
-    font-size: 24px;
-}
+/*#password_field {*/
+/*    margin: 20px;*/
+/*    padding-left: 10px;*/
+/*    height: 50px;*/
+/*    width: 400px;*/
+/*    font-size: 24px;*/
+/*}*/
 
-#login_submit_button {
-    margin-top: 20px;
-    width: 100px;
-    height: 50px;
-    font-size: 24px;
-    color:white;
-    background-color:green;
-}
+/*#login_submit_button {*/
+/*    margin-top: 20px;*/
+/*    width: 100px;*/
+/*    height: 50px;*/
+/*    font-size: 24px;*/
+/*    color:white;*/
+/*    background-color:green;*/
+/*}*/
 
-#login_message {
-    margin-top: 20px;
-    margin-left: 45px;
-    padding-top: 20px;
-    text-align:center;
-    font-size: 24px;
-    height: 100px;
-    width: 400px;
-    color:red;
-}
+/*#login_message {*/
+/*    margin-top: 20px;*/
+/*    margin-left: 45px;*/
+/*    padding-top: 20px;*/
+/*    text-align:center;*/
+/*    font-size: 24px;*/
+/*    height: 100px;*/
+/*    width: 400px;*/
+/*    color:red;*/
+/*}*/
 
 .input_label {
     margin: 10px;
