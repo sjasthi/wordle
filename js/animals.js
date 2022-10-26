@@ -589,8 +589,7 @@ function processGuess() {
                 }
                 document.getElementById("game_message").innerHTML =
                     "<p></p>" +
-                    // "<p>Sorry! You have run out of guesses...</p><p>The puzzle word was: " + puzzleWord +
-                    // "</p>" +
+                    "<p>Sorry! You have run out of guesses...Good luck next time!</p>" +
                     "<p>Click <a href='javascript:screenshot();'>here</a> to share your puzzle on social media.</p>";
 
                 document.getElementById("submission_panel").innerHTML =
@@ -852,13 +851,6 @@ function loadClue() {
 }
 
 
-/**
- * Written by Sharon in JS since php didn't work.
- * @param letter
- * @param word
- * @returns {*[]}
- */
-
 function checkEnglishMatch(actual, guess) {
     let matchArray = new Array(actual.length).fill("5");
     let checked = new Array(actual.length).fill(false);
@@ -967,7 +959,7 @@ function generateScreenShot() {
     for (var i = 0; i < numberOfChar; i++) {
         tableImage.querySelectorAll("td")[i].innerHTML = "";
     }
-    tableImage.querySelector ("#character_table").setAttribute("style", "position: absolute; margin-left: 200px;padding-bottom: 200px"); 
+    tableImage.querySelector ("#character_table").setAttribute("style", "margin-left: 200px; padding-bottom: 100px;"); 
     let myScreenshot = tableImage;
 
     let wordId = 0;
@@ -983,15 +975,16 @@ function generateScreenShot() {
     } else {
         myHTMLString = "<h1 style = 'text-align: center;'>I played wordle #" + wordId + " today on telugupuzzles.com!</h1>";
     }
-    myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
 
+    myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
     return myScreenshot;
 }
 
 function screenshot() {
     let myScreenshot = generateScreenShot();
+    console.log (myScreenshot);
     document.body.appendChild(myScreenshot);
-    html2canvas(myScreenshot).then(canvas => {
+    html2canvas(myScreenshot, {scale:0.75}).then(canvas => {
         var myImage = canvas.toDataURL("image/png");
         var tWindow = window.open("");
         $(tWindow.document.body)
