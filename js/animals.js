@@ -275,14 +275,14 @@ function loadSaveData(saveData) {
                 userRole = "GUEST";
             }
 
-            // if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-            //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-            //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
-            //         "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
-            // } else {
-            //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-            //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
-            // }
+            if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
+                document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+                    "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
+                    "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
+            } else {
+                document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+                    "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
+            }
         }
     }
     tableData = [];
@@ -597,14 +597,14 @@ function processGuess() {
                     '<input id="input_box" type="text" name="input_box" disabled>' +
                     '<input id="submit_button" type="submit" value="Submit" name="submit" style="background-color:grey" disabled></form>';
             } else {
-                // if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-                //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-                //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
-                //         "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
-                // } else {
-                //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-                //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
-                // }
+                if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
+                    document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+                        "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
+                        "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
+                } else {
+                    document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+                        "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
+                }
             }
         }
         // tableData array is used to store the characters for character_table and the integers that are used
