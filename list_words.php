@@ -20,7 +20,9 @@ require 'db_configuration.php';
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
         </div>
         <div>
-            <h1 id="title" >Wordle</h1>
+            <button onclick="window.location.href='index.php'">
+                <h1 id="title" style="left: 35%">Puzzle Words List</h1>
+            </button>
         </div>
         <div id="menu_buttons">
             <div id="help_button">
@@ -67,8 +69,20 @@ require 'db_configuration.php';
     <?php $page_title = 'Animals > puzzle word list';
     include('table_puzzle_words.php');
     ?>
+    <!-- Page Content -->
+    
+    <!--  Help Modal      -->
+    <?php $page_title = 'wordle > help modal';
+    # Page Content
+    include('wordle_help_modal.php');
+    ?>
 
-<!-- Page Content -->
+    <!--   Stat Modal   -->
+    <?php $page_title = 'wordle > stats modal';
+    # Page Content
+    include('statistics_modal.php');
+    ?>
+
 
 <script>
     function showHelpModal() {

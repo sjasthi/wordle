@@ -12,12 +12,12 @@ header {
     height: 120px;
 }
 
-#main_screen_logo {
-    position: absolute;
-    margin: 20px;
-    width: 320px;
-    height: 80px;
-}
+/*#main_screen_logo {*/
+/*    position: absolute;*/
+/*    margin: 20px;*/
+/*    width: 320px;*/
+/*    height: 80px;*/
+/*}*/
 
 #game_title {
     position: absolute;
@@ -30,13 +30,14 @@ header {
     color: white;
 }
 
-#menu_buttons {
-    position: absolute;
-    margin: 20px 20px 20px 1450px;
-    width: 1000px;
-    height: 80px;
-    white-space: nowrap;
-}
+/*#menu_buttons {*/
+/*    position: absolute;*/
+/*    margin: 20px 20px 20px 1450px;*/
+/*    width: 1000px;*/
+/*    height: 80px;*/
+/*    white-space: nowrap;*/
+/*}*/
+
 #setting_button {
     display:inline-block;
     margin: 5px 5px 5px 0px;
@@ -64,32 +65,49 @@ header {
 /*    border-radius: 5px;*/
 /*}*/
 
-#help_button {
-    display:inline-block;
-    margin: 5px 5px 5px 0px;
-    width: 70px;
-    height: 70px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-}
+/*#help_button {*/
+/*    display:inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
 
-#stat_button {
-    display:inline-block;
-    margin: 5px 5px 5px 0px;
-    width: 70px;
-    height: 70px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-}
+/*#stat_button {*/
+/*    display:inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
+/*#help_button {*/
+/*    display:inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
 
-#profile_button {
-    display:inline-block;
-    margin: 5px 5px 5px 0px;
-    width: 70px;
-    height: 70px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-}
+/*#stat_button {*/
+/*    display:inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*#profile_button {*/
+/*    display:inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
 
 #secondary_screen_buttons {
     position: absolute;
@@ -99,23 +117,23 @@ header {
     white-space: nowrap;
 }
 
-#back_button {
-    display: inline-block;
-    margin: 5px 5px 5px 0px;
-    width: 70px;
-    height: 70px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-}
+/*#back_button {*/
+/*    display: inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
 
-#add_button {
-    display: inline-block;
-    margin: 5px 5px 5px 0px;
-    width: 70px;
-    height: 70px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-}
+/*#add_button {*/
+/*    display: inline-block;*/
+/*    margin: 5px 5px 5px 0px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    border: 2px solid lightgrey;*/
+/*    border-radius: 5px;*/
+/*}*/
 
 #secondary_screen_logo {
     position: absolute;

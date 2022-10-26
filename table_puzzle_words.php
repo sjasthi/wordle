@@ -1,7 +1,7 @@
 <div id="customerTableView">
-    <h1 class="table_title">Puzzle Word List</h1>
-    <hr class="title_border">
-    <table class="display" id="wordTable" style="width:100%; border: 1px solid; border-collapse: collapse;">
+<!--    <h1 class="table_title">Puzzle Word List</h1>-->
+<!--    <hr class="title_border">-->
+    <table class="display" id="wordTable" style="width:100%; border: 1px groove; border-collapse: collapse;">
         <div class="table responsive">
             <thead>
             <tr>
