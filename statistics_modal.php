@@ -1,6 +1,6 @@
 <div id="stat_modal" class="modal">
     <div class="modal-content">
-<!--        <span class="close">&times;</span>-->
+       <span class="close">&times;</span>
         <div id="stat_modal_title"><p>STATISTICS</p></div>
         <div id="stat_values">
             <div id="games_played" class="stat_value">0</div>
@@ -23,6 +23,7 @@
         loadUserStats();
         document.getElementById("stat_modal").style.display = "block";
     }
+ 
     var statModalSpan = document.getElementsByClassName("close")[1];
     var statModal = document.getElementById("stat_modal");
     statModalSpan.onclick = function () {

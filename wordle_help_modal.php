@@ -1,6 +1,6 @@
 <div id="help_modal" class="modal" style="height:90%;overflow:auto">
     <div class="modal-content">
-<!--        <span class="close">&times;</span>-->
+       <span class="close">&times;</span>
         <h2></span><span style="font-family:'Arial';"><span style="font-size: 150%; ">How To Play</h2>
         <span style="font-family:'Arial';font-size: 120%;">
         Each guess must input a valid word with the correct length.<br>
@@ -68,11 +68,11 @@
         <br>
         This game was created as part of the ICS-499 course at Metropolitan State University, St. Paul, MN.<br><br>
         <span style="font-style: italic;">Sharon Shin<br>
-        Bonnie Le<br>
-        Julia Ha<br>
-        Yahya Mohamed<br>
-                    Phuc To<br>
-                </span>
+            Bonnie Le<br>
+            Julia Ha<br>
+            Yahya Mohamed<br>
+            Phuc To<br>
+        </span>
     </div>
 </div>
 <script>
