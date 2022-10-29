@@ -10,7 +10,7 @@ if(isset($_POST["import"])){
             ' " .$column[3]." ',' " .$column[4]." ',' " .$column[5]." ')";
             $result = mysqli_query($conn, $sqlInsert);
             if(!empty($result)){
-               echo " Yay! CSV Data Import Successfully. Pleae check the database";
+               echo " Yay! CSV Data Import Successfully. Please check the database";
             }else{
                echo "Error import - Please try again";
             }
@@ -18,10 +18,29 @@ if(isset($_POST["import"])){
     }
 }
 ?>
-<form class="form-horizoontal" action="" method= "post" name= "uploadCsv" enctype="multipart/form-data">
-<div>
-<label> Choose CVS File </label>
-<input type="file" name ="file" accept=".csv">
-<button type="submit" name="import"> Import</button>
-<div>
-</form>
+<div class="function" id="import_modal">
+<div class="custom_word_modal">
+    <span class="close">&times;</span>
+    <h1>Choose CVS File</h1>
+    <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">
+        <div class="text_field">
+            <input id="file_field" type="file" name="password" accept=".csv" required>
+            <span></span>
+            <label>File:</label>
+        </div>
+        <input id="file_import_button" type="submit" value="Import" name="import">
+    </form>
+</div>
+</div>
+
+<script>
+    function showImportModal() {
+        document.getElementById("import_modal").style.display = "block";
+    }
+
+    var importModalSpan = document.getElementsByClassName("close")[2];
+    var importModal = document.getElementById("import_modal");
+    importModalSpan.onclick = function () {
+        importModal.style.display = "none";
+    }
+</script>

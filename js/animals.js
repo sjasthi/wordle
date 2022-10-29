@@ -321,12 +321,14 @@ function loadUserStats() {
 function processLogin() {
     let userEmail = "";
     let userPassword = "";
+    let username = "";
     let userExists;
     let validLogin;
     let role;
 
     userEmail = document.getElementById("email_field").value;
     userPassword = document.getElementById("password_field").value;
+    username = document.getElementById("user_field").value;
 
     // API call to check if email belongs to registered user
     $.ajax({
@@ -368,6 +370,7 @@ function processLogin() {
             } else {
                 userInfo.push(role);
             }
+            userInfo.push(username);
             let userInfoString = JSON.stringify(userInfo);
             setCookie("userInfo", userInfoString, 90);
 
@@ -399,6 +402,7 @@ function logOut() {
         userRole = "GUEST";             // If no cookie, update to GUEST menus
     }
     updateMenus();
+    window.location.href = "index.php";
 }
 
 /*
@@ -411,8 +415,9 @@ profile_menu_5 -> Log In/Log Out
 function updateMenus() {
     // Check for a userInfo cookie
     let userCookieData = getCookie("userInfo");
+    let userData = "";
     if(userCookieData != "") {
-        let userData = JSON.parse(userCookieData);
+        userData = JSON.parse(userCookieData);
         userRole = userData[2];        // If cookie exists, update to appropriate menus
     } else {
         userRole = "GUEST";             // If no cookie, update to "guest" menus
@@ -428,18 +433,19 @@ function updateMenus() {
             "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
     } else if(userRole == "USER") {
         document.getElementById("profile_dropdown").innerHTML =
-            "<p id='profile_menu_1'>Access Level: USER</p>" +
+            "<p id='profile_menu_1'>"+userData[3]+" / USER</p>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
-            "<a id='profile_menu_4' href='list_custom_words.php' style='color:#black'>Custom Word List</a>" +
+            "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
         document.getElementById("profile_dropdown").innerHTML =
-            "<p id='profile_menu_1'>Access Level: ADMIN</p>" +
+            "<a id='profile_menu_1' href='admin.php' style='color:black'>"+userData[3]+" / ADMIN</a>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<a id='profile_menu_3' href='list_words.php' style='color:black'>Puzzle Word List</a>" +
             "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
+        document.getElementById("admin_title").innerHTML = userData[3];
     } else {
         alert("Unable to build menus. No access level data available.");
     }

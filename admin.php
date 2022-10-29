@@ -17,7 +17,7 @@
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
-                <h1 id="title">Login</h1>
+                <h1 id="admin_title">Admin</h1>
             </button>
         </div>
         <div id="menu_buttons">
@@ -47,7 +47,7 @@
     </div>
 </header>
 
-<body onload=updateMenus()>
+<body onload=updateMenus() style="background-color:#e4f2f7">
 <div class="left_bar">
     <div>
         <ul class="back" onclick="window.location.href='index.php'">
@@ -55,28 +55,20 @@
         </ul>
     </div>
 </div>
-<div class="custom_word_modal">
-    <h1>Welcome</h1>
-    <form action="index.php" method="post" onsubmit="processLogin();return false;">
-        <div class="text_field">
-            <input id="email_field" type="email" name="email" required autocomplete="on">
-            <span></span>
-            <label>Email:</label>
-        </div>
-        <div class="text_field">
-            <input id="password_field" type="password" name="password" required autocomplete="on">
-            <span></span>
-            <label>Password:</label>
-        </div>
-        <div class="text_field">
-            <input id="user_field" type="text" name="username" required autocomplete="on">
-            <span></span>
-            <label>Username:</label>
-        </div>
-        <input id="login_submit_button" type="submit" value="Submit" name="submit">
-    </form>
-    <div id="login_message">
 
+<div id="capability">
+    <div id="tools_title">
+        <h1>Functionality</h1>
+    </div>
+    <div id="report_button">
+        <button class="admin_btn">
+            <img src="images/document_icon.png" alt="Report Icon">
+        </button>
+    </div>
+    <div id="import_button">
+        <button class="admin_btn" onclick="showImportModal()">
+            <img src="images/import_icon.png" alt="Import Icon">
+        </button>
     </div>
 </div>
 
@@ -92,19 +84,22 @@ include('wordle_help_modal.php');
 include('statistics_modal.php');
 ?>
 
-<script>
-    let userCookieData = getCookie("userInfo");
-    if(userCookieData != "") {
-        let userData = JSON.parse(userCookieData);
-        document.getElementById("email_field").value = userData[0];
-    }
+<!--   Import Modal   -->
+<?php $page_title = 'wordle > import modal';
+# Page Content
+include('import.php');
+?>
 
+<script>
     window.onclick = function (event) {
         if (event.target === helpModal) {
             helpModal.style.display = "none";
         } else if (event.target === statModal) {
             statModal.style.display = "none";
+        } else if(event.target === importModal){
+            importModal.style.display = "none";
         }
     }
 </script>
 </body>
+</html>
