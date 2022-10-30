@@ -128,7 +128,7 @@
     width: 100%;
     height: 50px;
     text-align: center;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     font-size: 24px;
 }
 
@@ -203,6 +203,62 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.congratulation {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    /* padding-top: 20px; */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.screenshot-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#share_button {
+    display: flex;
+}
+
+.btn-download {
+    background-color: #037ec6; /* Green */
+    border: #037ec6;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+.btn-download:hover{
+    box-shadow: 0 5px 15px rgba(0, 255, 64, 0.4);
+}
+
+.btn-copy {
+    background-color: white; /* Green */
+    border: #037ec6;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    color: #037ec6;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: auto;
+}
+.btn-copy:hover{
+    box-shadow: 0 5px 15px rgba(0, 255, 64, 0.4);
 }
 
 @media screen and (max-width: 900px) {
