@@ -1,3 +1,6 @@
+<?php
+require 'db_configuration.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +64,7 @@
         <h1>Functionality</h1>
     </div>
     <div id="report_button">
-        <button class="admin_btn">
+        <button class="admin_btn" onclick="showReportModal()">
             <img src="images/document_icon.png" alt="Report Icon">
         </button>
     </div>
@@ -90,6 +93,12 @@ include('statistics_modal.php');
 include('import.php');
 ?>
 
+<!--   Report Modal   -->
+<?php $page_title = 'wordle > report modal';
+# Page Content
+include('report.php');
+?>
+
 <script>
     window.onclick = function (event) {
         if (event.target === helpModal) {
@@ -98,6 +107,8 @@ include('import.php');
             statModal.style.display = "none";
         } else if(event.target === importModal){
             importModal.style.display = "none";
+        } else if(event.target === reportModal){
+            reportModal.style.display = "none";
         }
     }
 </script>

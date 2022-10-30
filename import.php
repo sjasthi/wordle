@@ -1,5 +1,4 @@
 <?php
-require 'db_configuration.php';
 $conn = mysqli_connect("localhost","root","","ics499");
 if(isset($_POST["import"])){
     $fileName = $_FILES["file"]["tmp_name"];
@@ -18,8 +17,8 @@ if(isset($_POST["import"])){
     }
 }
 ?>
-<div class="function" id="import_modal">
-<div class="custom_word_modal">
+<div class="function" id="import_modal" >
+<div class="custom_word_modal" style="position: absolute; margin-bottom: 30%;">
     <span class="close">&times;</span>
     <h1>Choose CVS File</h1>
     <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">

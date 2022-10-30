@@ -317,10 +317,10 @@ p, a {
 
 #capability{
     position: absolute;
-    top: 25%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
+    width: 25%;
     height: 20%;
     background: white;
     border-radius: 10px;
@@ -368,5 +368,10 @@ p, a {
 }
 
 #import_modal{
+    display: none;
+ 
+}
+
+#report_modal{
     display: none;
 }
