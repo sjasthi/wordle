@@ -1,6 +1,7 @@
 <div id="stat_modal" class="modal">
     <div class="modal-content">
        <span class="close">&times;</span>
+        <div id="congratulation"></div>
         <div id="stat_modal_title"><p>STATISTICS</p></div>
         <div id="stat_values">
             <div id="games_played" class="stat_value">0</div>
@@ -16,6 +17,8 @@
             <div id="current_streak_label" class="stat_label">Current Streak</div>
             <div id="max_streak_label" class="stat_label">Max Streak</div>
         </div>
+        <div id="screenshot-image"></div>
+        <div id="share_button"></div>
     </div>
 </div>
 <script>
