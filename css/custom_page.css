@@ -317,13 +317,13 @@ p, a {
 
 #capability{
     position: absolute;
+
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     height: auto;
-    
-    
+
 }
 
 #tools_title{
@@ -369,6 +369,12 @@ p, a {
 }
 
 #import_modal{
+    display: none;
+
+ 
+}
+
+#report_modal{
     display: none;
 }
 
@@ -422,3 +428,4 @@ p, a {
     width: calc(100% - 0.85rem);
     border-radius: 0.5em;
    }
+
