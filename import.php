@@ -2,6 +2,7 @@
 $conn = mysqli_connect("localhost","root","","ics499");
 if(isset($_POST["import"])){
     $fileName = $_FILES["file"]["tmp_name"];
+    $error = "";
     if ($_FILES["file"]["size"]>0){
         $file = fopen($fileName, "r");
         while(($column = fgetcsv($file,1000,","))!==FALSE){
@@ -9,11 +10,21 @@ if(isset($_POST["import"])){
             ' " .$column[3]." ',' " .$column[4]." ',' " .$column[5]." ')";
             $result = mysqli_query($conn, $sqlInsert);
             if(!empty($result)){
-               echo " Yay! CSV Data Import Successfully. Please check the database";
+            //    alert("CSV Data Import Successfully. Please check the database.");
             }else{
-               echo "Error import - Please try again";
+            //    alert("Error import - Please try again");
+                $error = $error + "Error importing word " + $column[0] + "\n";
             }
         }
+        if ($error == "") {?>
+            <script>
+                alert("CSV Data Import Successfully. Please check the database.");
+            </script>
+        <?php } else { ?>
+            <script>
+                alert(<?php $error ?>);
+            </script>
+        <?php }
     }
 }
 ?>

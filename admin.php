@@ -64,7 +64,7 @@ require 'db_configuration.php';
         <h1>Admin Tools</h1>
     </div>
     <div id="report_button">
-        <button class="Ibutton">
+        <button class="Ibutton" onclick="showReportModal()">
             <div class="icon">
                 <svg viewBox="0 0 16 16" class="bi bi-telegram" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.
@@ -78,7 +78,7 @@ require 'db_configuration.php';
     <div id="import_button">
         <!-- <button class="admin_btn" onclick="showImportModal()"> -->
             <!-- <img src="images/import_icon.png" alt="Import Icon"> -->
-            <button class="Ibutton" onclick="showImportModal()">
+        <button class="Ibutton" onclick="showImportModal()">
             <div class="icon" onclick="showImportModal()">
                 <svg viewBox="0 0 16 16" class="bi bi-telegram" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.
@@ -86,7 +86,7 @@ require 'db_configuration.php';
                 </svg>
             </div>
             <p>IMPORT</p>
-            </button>
+        </button>
 
         
     </div>
