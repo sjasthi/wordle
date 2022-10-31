@@ -23,7 +23,7 @@ if(isset($_POST["import"])){
     <h1>Choose CVS File</h1>
     <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">
         <div class="text_field">
-            <input id="file_field" type="file" name="password" accept=".csv" required>
+            <input id="file_field" type="file" name="file" accept=".csv" required>
             <span></span>
             <label>File:</label>
         </div>

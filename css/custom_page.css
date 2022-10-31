@@ -317,20 +317,19 @@ p, a {
 
 #capability{
     position: absolute;
-    top: 27%;
+
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
-    height: 20%;
-    background: white;
-    border-radius: 10px;
-    padding: 0px 0px 14px;
+    width: 100%;
+    height: auto;
+
 }
 
 #tools_title{
-    position: absolute;
-    top: 3%;
-    left: 30%;
+    position: absoulte;
+    top:20%;
+    text-align: center;
 }
 
 .admin_btn{
@@ -341,14 +340,16 @@ p, a {
 
 #report_button{
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 120%;
+    left: 35%;
 }
 
 #import_button{
     position: absolute;
-    top: 30%;
-    left: 50%;
+    top: 120%;
+    left: 55%;
+    
+    
 }
 
 .function{
@@ -369,9 +370,62 @@ p, a {
 
 #import_modal{
     display: none;
+
  
 }
 
 #report_modal{
     display: none;
 }
+
+/* IMPORT BUTTON */
+
+.Ibutton {
+    font-family: inherit;
+    background: #2CA0D9;
+    color: white;
+    padding: 0.35em 0;
+    font-size: 17px;
+    border: none;
+    border-radius: 0.7em;
+    letter-spacing: 0.08em;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 2.1em;
+    padding-left: 2.8em;
+    padding-right: 0.9em;
+   }
+   
+   .Ibutton .icon {
+    background: #fff;
+    height: 2em;
+    width: 2em;
+    border-radius: 2em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0.4em;
+    transition: all 0.5s;
+   }
+   
+   .icon svg {
+    margin-left: 0.4em;
+    transition: all 0.5s;
+    color: #2CA0D9;
+    width: 1.2rem;
+    height: 1.2rem;
+   }
+   
+   .Ibutton:hover .icon svg {
+    transform: rotate(360deg);
+   }
+   
+   .Ibutton:hover .icon {
+    width: calc(100% - 0.85rem);
+    border-radius: 0.5em;
+   }
+
