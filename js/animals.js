@@ -14,7 +14,6 @@ const admins = ["little.turtle.313@gmail.com", "bonniele1101@gmail.com", "john.p
 const userInfo = [];
 const userStats = [];
 var tableData = [];
-// let srcImage;
 
 
 
@@ -437,24 +436,24 @@ function updateMenus() {
             "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
     } else if(userRole == "USER") {
         document.getElementById("profile_dropdown").innerHTML =
-            "<p id='profile_menu_1'>"+userData[3]+" / USER</p>" +
+            "<p id='profile_menu_1'>Access Level: USER</p>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
             "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
         document.getElementById("profile_dropdown").innerHTML =
-            "<a id='profile_menu_1' href='admin.php' style='color:black'>"+userData[3]+" / ADMIN</a>" +
+            "<p id='profile_menu_1'>Access Level: ADMIN</p>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<a id='profile_menu_3' href='list_words.php' style='color:black'>Puzzle Word List</a>" +
             "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
-        document.getElementById("admin_title").innerHTML = userData[3];
+        document.getElementById("admin_access").style.display = "block";
+        document.getElementById("admin_name").innerHTML = userData[3].toUpperCase() + " / ADMIN";
     } else {
         alert("Unable to build menus. No access level data available.");
     }
 }
-
 
 function getLogicalChars (word) {
     let logicalChars;

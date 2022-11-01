@@ -36,17 +36,22 @@ if ($date > $today_date) {
         <script src="js/animals.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
-    
+
     <header>
         <div class="header_bar">
             <div id="main_screen_logo">
-                <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon"
-                                                         style="height:80px;width:auto;"></a>
+                <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
+            </div>
+            <div id="admin_access">
+                <ul id="admin_profile">
+                    <li id="admin_button"><span>
+                        <img src="images/admin_icon.png"><a id="admin_name" href="admin.php"></a>
+                    </span>
+                    </li>
+                </ul>
             </div>
             <div>
-                <button onclick="window.location.href='index.php'">
-                    <h1 id="title" style="left: 39.5%">Update Word</h1>
-                </button>
+                <h1 id="title" >Puzzle Words List</h1>
             </div>
             <div id="menu_buttons">
                 <div id="help_button">
@@ -182,17 +187,22 @@ if ($date > $today_date) {
         <script src="js/animals.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
-    
+
     <header>
         <div class="header_bar">
             <div id="main_screen_logo">
-                <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon"
-                                                         style="height:80px;width:auto;"></a>
+                <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
+            </div>
+            <div id="admin_access">
+                <ul id="admin_profile">
+                    <li id="admin_button"><span>
+                        <img src="images/admin_icon.png"><a id="admin_name" href="admin.php"></a>
+                    </span>
+                    </li>
+                </ul>
             </div>
             <div>
-                <button onclick="window.location.href='index.php'">
-                    <h1 id="title" style="left: 35%">Puzzle Words List</h1>
-                </button>
+                <h1 id="title" >Puzzle Words List</h1>
             </div>
             <div id="menu_buttons">
                 <div id="help_button">
@@ -220,6 +230,7 @@ if ($date > $today_date) {
             </div>
         </div>
     </header>
+
     <body onload=updateMenus()>
     <div class="left_bar">
         <div>
@@ -257,14 +268,6 @@ if ($date > $today_date) {
     
     
     <script>
-        function showHelpModal() {
-            document.getElementById("help_modal").style.display = "block";
-        }
-        
-        function showStatModal() {
-            loadUserStats();
-            document.getElementById("stat_modal").style.display = "block";
-        }
         
         window.onclick = function (event) {
             if (event.target === helpModal) {

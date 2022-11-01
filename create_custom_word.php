@@ -18,6 +18,14 @@
         <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
         </div>
+        <div id="admin_access">
+            <ul id="admin_profile">
+                <li id="admin_button"><span>
+                        <img src="images/admin_icon.png"><a id="admin_name" href="admin.php"></a>
+                    </span>
+                </li>
+            </ul>
+        </div>
         <div>
             <button onclick="window.location.href='index.php'">
                 <h1 id="title" style="left: 33.5%">Create Custom Word</h1>
