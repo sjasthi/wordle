@@ -973,39 +973,6 @@ function getPuzzleId(word) {
     return id;
 }
 
-// function generateScreenShot() {
-//     let tableImage = document.querySelector("#game_panel").cloneNode(true);
-//     let numberOfChar = tableImage.querySelectorAll("td").length;
-//     for (var i = 0; i < numberOfChar; i++) {
-//         tableImage.querySelectorAll("td")[i].innerHTML = "";
-//         tableImage.querySelectorAll("td")[i].style.height='20px';
-//         tableImage.querySelectorAll("td")[i].style.width='20px';
-//         tableImage.querySelectorAll("td")[i].style.border='1px solid';
-//     }
-//     tableImage.querySelector ("#character_table").setAttribute("style", "border: 1px solid;; margin-left: 200px; "); 
-//     let myScreenshot = tableImage;
-
-//     let wordId = 0;
-//     if (customWord) {
-//         wordId = customWordId;
-//     } else {
-//         wordId = getPuzzleId(puzzleWord);
-//     }
-//     // console.log(getPuzzleId(puzzleWord));
-//     let attemps = numberOfAttempts - 1;
-//     let myHTMLString;
-//     if (gameResult == "win") {
-//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
-//             + "<p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-//     } else {
-//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
-//             " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-//     }
-
-//     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
-//     return myScreenshot;
-// }
-
 
 function selectHTMLCode(id) {
     squareCode = "&#11036";
@@ -1059,18 +1026,19 @@ function generateTextScreenShot() {
     } else {
         wordId = getPuzzleId(puzzleWord);
     }
-    let attemps = numberOfAttempts - 1;
+
     let myHTMLString;
     myHTMLString = generateTextTable();
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
-
+    let attempts = tableData.length /2;
     if (gameResult == "win") {
-        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 100px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
+        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 100px;'>Solved: Wordle #" + wordId + " - " + attempts + "/8 </h1>" 
             + "<p style = 'text-align: center;font-size:80px;'>telugupuzzles.com</p>";
-    } else {
-        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
-            " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-    }
+    } 
+    // else {
+    //     myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
+    //         " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
+    // }
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
     console.log (myScreenshot);
     return myScreenshot;
@@ -1104,7 +1072,6 @@ function addShareButton() {
         downloadImage(dataURL, 'wordle-win.jpeg');
     });
     document.getElementById('btn-copy').addEventListener("click", function(e) {
-        // var dataURL = srcImage;
         copyImage(myScreenshot);
     });
 }
@@ -1135,6 +1102,39 @@ function screenshot() {
     loadUserStats();
     document.getElementById("stat_modal").style.display = "block";
 }
+
+// function generateScreenShot() {
+//     let tableImage = document.querySelector("#game_panel").cloneNode(true);
+//     let numberOfChar = tableImage.querySelectorAll("td").length;
+//     for (var i = 0; i < numberOfChar; i++) {
+//         tableImage.querySelectorAll("td")[i].innerHTML = "";
+//         tableImage.querySelectorAll("td")[i].style.height='20px';
+//         tableImage.querySelectorAll("td")[i].style.width='20px';
+//         tableImage.querySelectorAll("td")[i].style.border='1px solid';
+//     }
+//     tableImage.querySelector ("#character_table").setAttribute("style", "border: 1px solid;; margin-left: 200px; "); 
+//     let myScreenshot = tableImage;
+
+//     let wordId = 0;
+//     if (customWord) {
+//         wordId = customWordId;
+//     } else {
+//         wordId = getPuzzleId(puzzleWord);
+//     }
+//     // console.log(getPuzzleId(puzzleWord));
+//     let attemps = numberOfAttempts - 1;
+//     let myHTMLString;
+//     if (gameResult == "win") {
+//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
+//             + "<p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
+//     } else {
+//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
+//             " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
+//     }
+
+//     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
+//     return myScreenshot;
+// }
 
 //The API call doesnt exist anymore
 // function convertImgURL(image) {

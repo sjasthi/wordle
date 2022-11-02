@@ -1,5 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost","root","","ics499");
+// require 'db_configuration.php';
+$conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
 if(isset($_POST["import"])){
     $fileName = $_FILES["file"]["tmp_name"];
     $error = "";
