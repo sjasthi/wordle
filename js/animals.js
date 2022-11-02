@@ -14,6 +14,7 @@ const admins = ["little.turtle.313@gmail.com", "bonniele1101@gmail.com", "john.p
 const userInfo = [];
 const userStats = [];
 var tableData = [];
+var adminName = "";
 
 
 
@@ -450,9 +451,14 @@ function updateMenus() {
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
         document.getElementById("admin_access").style.display = "block";
         document.getElementById("admin_name").innerHTML = userData[3].toUpperCase() + " / ADMIN";
+        adminName = userData[3].toUpperCase();
     } else {
         alert("Unable to build menus. No access level data available.");
     }
+}
+
+function getAdminName(){
+    return this.adminName;
 }
 
 function getLogicalChars (word) {

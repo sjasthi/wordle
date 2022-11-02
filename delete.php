@@ -8,7 +8,6 @@ require 'db_configuration.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/menu.css">
-    <!-- <link rel="stylesheet" href="css/wordle.css"> -->
     <link rel="stylesheet" href="css/custom_page.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <script src="js/animals.js"></script>
@@ -30,7 +29,7 @@ require 'db_configuration.php';
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
-                <h1 id="title" style="left: 35%">Puzzle Words List</h1>
+                <h1 id="title" style="left: 35%">Puzzle Word List</h1>
             </button>
         </div>
         <div id="menu_buttons">

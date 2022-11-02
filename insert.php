@@ -28,7 +28,7 @@ require 'db_configuration.php';
             </ul>
         </div>
         <div>
-            <h1 id="title" >Wordle</h1>
+            <h1 id="title" >Puzzle Word List</h1>
         </div>
         <div id="menu_buttons">
             <div id="help_button">

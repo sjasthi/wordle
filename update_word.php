@@ -51,7 +51,9 @@ if ($date > $today_date) {
                 </ul>
             </div>
             <div>
-                <h1 id="title" >Puzzle Words List</h1>
+                <button onclick="window.location.href='list_words.php'">
+                    <h1 id="title" style="position: absolute; left: 37%;">Puzzle Word List</h1>
+                </button>
             </div>
             <div id="menu_buttons">
                 <div id="help_button">
@@ -181,7 +183,7 @@ if ($date > $today_date) {
         <title>Puzzle Words Table</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/animals.css">
+        <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="css/custom_page.css">
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
         <script src="js/animals.js"></script>
@@ -202,7 +204,9 @@ if ($date > $today_date) {
                 </ul>
             </div>
             <div>
-                <h1 id="title" >Puzzle Words List</h1>
+                <button onclick="window.location.href='index.php'">
+                    <h1 id="title" style="position: absolute; left: 37%;">Puzzle Word List</h1>
+                </button>
             </div>
             <div id="menu_buttons">
                 <div id="help_button">
@@ -234,7 +238,7 @@ if ($date > $today_date) {
     <body onload=updateMenus()>
     <div class="left_bar">
         <div>
-            <ul class="back" onclick="window.location.href='list_words.php'">
+            <ul class="back" onclick="window.location.href='index.php'">
                 <li class="prev"><span></span></li>
             </ul>
         </div>

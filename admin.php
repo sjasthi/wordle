@@ -58,7 +58,7 @@ require 'db_configuration.php';
     </div>
 </header>
 
-<body onload=updateMenus() style="background-color:#e4f2f7">
+<body onload="updateMenus(); fillAdminTitle();" style="background-color:#e4f2f7">
 <div class="left_bar">
     <div>
         <ul class="back" onclick="window.location.href='index.php'">
@@ -136,6 +136,11 @@ include('report.php');
             reportModal.style.display = "none";
         }
     }
+
+    function fillAdminTitle(){
+        document.getElementById("title").innerHTML = getAdminName();
+    }
+
 
 </script>
 </body>

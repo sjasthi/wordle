@@ -29,7 +29,7 @@ require 'db_configuration.php';
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
-                <h1 id="title" style="left: 35%">Custom Words List</h1>
+                <h1 id="title" style="left: 35%">Custom Word List</h1>
             </button>
         </div>
         <div id="menu_buttons">

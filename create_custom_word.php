@@ -28,7 +28,7 @@
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
-                <h1 id="title" style="left: 33.5%">Create Custom Word</h1>
+                <h1 id="title" style="left: 33.5%">Custom Word List</h1>
             </button>
         </div>
         <div id="menu_buttons">

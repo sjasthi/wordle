@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/custom_page.css">
     <link rel="stylesheet" href="css/menu.css">
-    <!-- <link rel="stylesheet" href="css/wordle.css"> -->
     <script src="js/animals.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
@@ -34,7 +33,7 @@
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
-                <h1 id="title" style="left: 40%">Create Word</h1>
+                <h1 id="title" style="left: 40%">Puzzle Word List</h1>
             </button>
         </div>
         <div id="menu_buttons">
