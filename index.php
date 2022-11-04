@@ -8,7 +8,7 @@ require 'db_configuration.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/index.css">
-    <!-- <link rel="stylesheet" href="css/custom_page.css"> -->
+    <link rel="stylesheet" href="css/menu.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/animals.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -20,7 +20,9 @@ require 'db_configuration.php';
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
         </div>
         <div>
-            <h1 id="title" >Wordle</h1>
+            <button onclick="window.location.href='index.php'">
+                <h1 id="title">Wordle</h1>
+            </button>
         </div>
         <div id="menu_buttons">
             <div id="help_button">
@@ -71,108 +73,17 @@ require 'db_configuration.php';
     </form>
 </div>
 
-
 <!--  Help Modal      -->
-<div id="help_modal" class="modal" style="height:90%;overflow:auto">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2></span><span style="font-family:'Arial';"><span style="font-size: 150%; ">How To Play</h2>
-        <span style="font-family:'Arial';font-size: 120%;">
-        Each guess must input a valid word with the correct length.<br>
-        Hit the enter or click "Submit" button to submit.<br>
-                        After each guess, the color of the tiles will change to show how close your guess was to the actual word.<br><br></span></span>
-
-
-        <h4><span style="font-size: 144%; ">English:</span></h4>
-        <div>
-            <div><img src="images/e_g1.png" alt="green1" style="height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'b' is in the word and in the correct spot.<span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/e_iy.png" alt="yellow" style="height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'a' is in the word but in the wrong spot.</span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/e_almostgreen.png" alt="almostgreen"
-                      style="height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'o' is not in the word in any spot.</span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/e_allgreen.png" alt="allGreen" style="height:50px;vertical-align:middle;">
-            </div>
-            <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
-        <p></p>
-        <h4><span style="font-size: 144%; ">Telugu:</span></h4>
-        <span style="font-family:'Arial';font-size: 120%;">Exact Match Logic is the same as English, but there are added Base Match Logic's color:</span>
-        <br>
-        <div>
-            <div><img src="images/t_yellow.png" alt="t_yellow" style="height:50px;vertical-align:middle;">
-            </div>
-            <span style="font-family:'Arial';font-size: 120%;">The letters 'అ' and 'న్న' are in the word. but in the wrong spot.</span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/t_yellowpink.png" alt="pink" style="height:50px;vertical-align:middle;">
-            </div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'న' is a Base Match, but in the wrong spot.</span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/t_greenblue.png" alt="greenblue"
-                      style="height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'య' is Base Match in the word, and in the correct spot.</span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/t_gray.png" alt="greenblue"
-                      style="height:50px;vertical-align:middle;"></div>
-            <span style="font-family:'Arial';font-size: 120%;">The letter 'కం' and 'దా' doesn't match the Base Character and Logical Character of the word in any spot</span>
-        </div>
-        <br>
-        <div>
-            <div><img src="images/t_green.png" alt="t_green" style="height:50px;vertical-align:middle;">
-            </div>
-            <span style="font-family:'Arial';font-size: 120%;">All green letters means You Win!</span></div>
-        <br><br><span style="font-family:'Arial';font-size: 120%;"><h5>A new WORDLE will be available each day!<br>New English Word at 08:00 CST<br>New Telugu Word at 20:00 CST</h5></span>
-        <p></p>
-        <h4><span style="font-family:'Arial';font-size: 150%;">About Wordle:</span></h4>
-        <span style="font-family:'Arial';font-size: 120%;">
-        <br>
-        This game was created as part of the ICS-499 course at Metropolitan State University, St. Paul, MN.<br><br>
-        <span style="font-style: italic;">Sharon Shin<br>
-        Bonnie Le<br>
-        Julia Ha<br>
-        Yahya Mohamed<br>
-                    Phuc To<br>
-                </span>
-    </div>
-</div>
+<?php $page_title = 'wordle > help modal';
+# Page Content
+include('wordle_help_modal.php');
+?>
 
 <!--   Stat Modal   -->
-<div id="stat_modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="stat_modal_title"><p>STATISTICS</p></div>
-        <div id="stat_values">
-            <div id="games_played" class="stat_value">0</div>
-            <div id="games_won" class="stat_value">0</div>
-            <div id="win_percent" class="stat_value">0</div>
-            <div id="current_streak" class="stat_value">0</div>
-            <div id="max_streak" class="stat_value">0</div>
-        </div>
-        <div id="stat_labels">
-            <div id="games_played_label" class="stat_label">Played</div>
-            <div id="games_won_label" class="stat_label">Won</div>
-            <div id="win_percent_label" class="stat_label">Win %</div>
-            <div id="current_streak_label" class="stat_label">Current Streak</div>
-            <div id="max_streak_label" class="stat_label">Max Streak</div>
-        </div>
-    </div>
-</div>
-
+<?php $page_title = 'wordle > stats modal';
+# Page Content
+include('statistics_modal.php');
+?>
 
 <script>
     // Javascript function to pull puzzle_word details and build UI tables
@@ -186,48 +97,13 @@ require 'db_configuration.php';
     loadPuzzleGame();
     <?php
     } ?>
-
+    
     // loadGame();
-
-
+    
+    
     /* These functions make modals appear. They weren't working from the external
     file, so I put them here. */
-
-    function showHelpModal() {
-        document.getElementById("help_modal").style.display = "block";
-    }
-
-    function showStatModal() {
-        loadUserStats();
-        document.getElementById("stat_modal").style.display = "block";
-    }
-
-    // function showSettingsModal() {
-    //     document.getElementById("settings_modal").style.display = "block";
-    // }
-
-    var helpModalSpan = document.getElementsByClassName("close")[0];
-    var statModalSpan = document.getElementsByClassName("close")[1];
-    // var settingModalSpan = document.getElementsByClassName("close")[0];
-
-    var helpModal = document.getElementById("help_modal");
-    var statModal = document.getElementById("stat_modal");
-    // var settingModal = document.getElementById("settings_modal");
-
-    // When the user clicks on <span> (x), close the modal
-    helpModalSpan.onclick = function () {
-        helpModal.style.display = "none";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    statModalSpan.onclick = function () {
-        statModal.style.display = "none";
-    }
-
-    // settingModalSpan.onclick = function () {
-    //     settingModal.style.display = "none";
-    // }
-
+    
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target === helpModal) {
@@ -236,12 +112,12 @@ require 'db_configuration.php';
             statModal.style.display = "none";
         }
     }
-
+    
     // var languageElement = document.getElementById("lang");
     // var lengthElement = document.getElementById("length");
     // var attemptsElement = document.getElementById("attempts");
     //settingModal.onchange = buildTables();
-
+    
     // var applyButton = document.getElementById("apply-button");
     // applyButton.onclick = function () {
     //     resetGame();
