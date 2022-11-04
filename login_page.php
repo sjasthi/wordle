@@ -59,14 +59,19 @@
     <h1>Welcome</h1>
     <form action="index.php" method="post" onsubmit="processLogin();return false;">
         <div class="text_field">
-            <input id="email_field" type="email" name="email" required>
+            <input id="email_field" type="email" name="email" required autocomplete="on">
             <span></span>
             <label>Email:</label>
         </div>
         <div class="text_field">
-            <input id="password_field" type="password" name="password" required>
+            <input id="password_field" type="password" name="password" required autocomplete="on">
             <span></span>
             <label>Password:</label>
+        </div>
+        <div class="text_field">
+            <input id="user_field" type="text" name="username" required autocomplete="on">
+            <span></span>
+            <label>Username:</label>
         </div>
         <input id="login_submit_button" type="submit" value="Submit" name="submit">
     </form>
@@ -92,15 +97,6 @@ include('statistics_modal.php');
     if(userCookieData != "") {
         let userData = JSON.parse(userCookieData);
         document.getElementById("email_field").value = userData[0];
-    }
-
-    function showHelpModal() {
-        document.getElementById("help_modal").style.display = "block";
-    }
-
-    function showStatModal() {
-        loadUserStats();
-        document.getElementById("stat_modal").style.display = "block";
     }
 
     window.onclick = function (event) {

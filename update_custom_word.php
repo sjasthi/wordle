@@ -39,7 +39,7 @@ if (isset($_GET['id'])){
         </div>
         <div>
             <button onclick="window.location.href='index.php'">
-                <h1 id="title" style="left: 33.5%">Update Custom Words</h1>
+                <h1 id="title" style="left: 33.5%">Custom Word List</h1>
             </button>
         </div>
         <div id="menu_buttons">
