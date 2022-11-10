@@ -1,8 +1,9 @@
 <?php
-require 'db_configuration.php';
-$conn = mysqli_connect("localhost","root","","ics499");
+// require 'db_configuration.php';
+$conn = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASSWORD, DATABASE_DATABASE);
 if(isset($_POST["import"])){
     $fileName = $_FILES["file"]["tmp_name"];
+    $error = "";
     if ($_FILES["file"]["size"]>0){
         $file = fopen($fileName, "r");
         while(($column = fgetcsv($file,1000,","))!==FALSE){
@@ -10,16 +11,26 @@ if(isset($_POST["import"])){
             ' " .$column[3]." ',' " .$column[4]." ',' " .$column[5]." ')";
             $result = mysqli_query($conn, $sqlInsert);
             if(!empty($result)){
-               echo " Yay! CSV Data Import Successfully. Please check the database";
+            //    alert("CSV Data Import Successfully. Please check the database.");
             }else{
-               echo "Error import - Please try again";
+            //    alert("Error import - Please try again");
+                $error = $error + "Error importing word " + $column[0] + "\n";
             }
         }
+        if ($error == "") {?>
+            <script>
+                alert("CSV Data Import Successfully. Please check the database.");
+            </script>
+        <?php } else { ?>
+            <script>
+                alert(<?php $error ?>);
+            </script>
+        <?php }
     }
 }
 ?>
-<div class="function" id="import_modal">
-<div class="custom_word_modal">
+<div class="function" id="import_modal" >
+<div class="custom_word_modal" style="position: absolute; margin-bottom: 30%;">
     <span class="close">&times;</span>
     <h1>Choose CVS File</h1>
     <form action="" method="post" name="uploadCsv" enctype="multipart/form-data">

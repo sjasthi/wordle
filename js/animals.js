@@ -14,7 +14,7 @@ const admins = ["little.turtle.313@gmail.com", "bonniele1101@gmail.com", "john.p
 const userInfo = [];
 const userStats = [];
 var tableData = [];
-// let srcImage;
+var adminName = "";
 
 
 
@@ -437,24 +437,29 @@ function updateMenus() {
             "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
     } else if(userRole == "USER") {
         document.getElementById("profile_dropdown").innerHTML =
-            "<p id='profile_menu_1'>"+userData[3]+" / USER</p>" +
+            "<p id='profile_menu_1'>Access Level: USER</p>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
             "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
         document.getElementById("profile_dropdown").innerHTML =
-            "<a id='profile_menu_1' href='admin.php' style='color:black'>"+userData[3]+" / ADMIN</a>" +
+            "<p id='profile_menu_1'>Access Level: ADMIN</p>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<a id='profile_menu_3' href='list_words.php' style='color:black'>Puzzle Word List</a>" +
             "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
-        document.getElementById("admin_title").innerHTML = userData[3];
+        document.getElementById("admin_access").style.display = "block";
+        document.getElementById("admin_name").innerHTML = userData[3].toUpperCase() + " / ADMIN";
+        adminName = userData[3].toUpperCase();
     } else {
         alert("Unable to build menus. No access level data available.");
     }
 }
 
+function getAdminName(){
+    return this.adminName;
+}
 
 function getLogicalChars (word) {
     let logicalChars;
@@ -968,39 +973,6 @@ function getPuzzleId(word) {
     return id;
 }
 
-// function generateScreenShot() {
-//     let tableImage = document.querySelector("#game_panel").cloneNode(true);
-//     let numberOfChar = tableImage.querySelectorAll("td").length;
-//     for (var i = 0; i < numberOfChar; i++) {
-//         tableImage.querySelectorAll("td")[i].innerHTML = "";
-//         tableImage.querySelectorAll("td")[i].style.height='20px';
-//         tableImage.querySelectorAll("td")[i].style.width='20px';
-//         tableImage.querySelectorAll("td")[i].style.border='1px solid';
-//     }
-//     tableImage.querySelector ("#character_table").setAttribute("style", "border: 1px solid;; margin-left: 200px; "); 
-//     let myScreenshot = tableImage;
-
-//     let wordId = 0;
-//     if (customWord) {
-//         wordId = customWordId;
-//     } else {
-//         wordId = getPuzzleId(puzzleWord);
-//     }
-//     // console.log(getPuzzleId(puzzleWord));
-//     let attemps = numberOfAttempts - 1;
-//     let myHTMLString;
-//     if (gameResult == "win") {
-//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
-//             + "<p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-//     } else {
-//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
-//             " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-//     }
-
-//     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
-//     return myScreenshot;
-// }
-
 
 function selectHTMLCode(id) {
     squareCode = "&#11036";
@@ -1054,18 +1026,19 @@ function generateTextScreenShot() {
     } else {
         wordId = getPuzzleId(puzzleWord);
     }
-    let attemps = numberOfAttempts - 1;
+
     let myHTMLString;
     myHTMLString = generateTextTable();
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
-
+    let attempts = tableData.length /2;
     if (gameResult == "win") {
-        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 100px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
+        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 100px;'>Solved: Wordle #" + wordId + " - " + attempts + "/8 </h1>" 
             + "<p style = 'text-align: center;font-size:80px;'>telugupuzzles.com</p>";
-    } else {
-        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
-            " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-    }
+    } 
+    // else {
+    //     myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
+    //         " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
+    // }
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
     console.log (myScreenshot);
     return myScreenshot;
@@ -1099,7 +1072,6 @@ function addShareButton() {
         downloadImage(dataURL, 'wordle-win.jpeg');
     });
     document.getElementById('btn-copy').addEventListener("click", function(e) {
-        // var dataURL = srcImage;
         copyImage(myScreenshot);
     });
 }
@@ -1130,6 +1102,39 @@ function screenshot() {
     loadUserStats();
     document.getElementById("stat_modal").style.display = "block";
 }
+
+// function generateScreenShot() {
+//     let tableImage = document.querySelector("#game_panel").cloneNode(true);
+//     let numberOfChar = tableImage.querySelectorAll("td").length;
+//     for (var i = 0; i < numberOfChar; i++) {
+//         tableImage.querySelectorAll("td")[i].innerHTML = "";
+//         tableImage.querySelectorAll("td")[i].style.height='20px';
+//         tableImage.querySelectorAll("td")[i].style.width='20px';
+//         tableImage.querySelectorAll("td")[i].style.border='1px solid';
+//     }
+//     tableImage.querySelector ("#character_table").setAttribute("style", "border: 1px solid;; margin-left: 200px; "); 
+//     let myScreenshot = tableImage;
+
+//     let wordId = 0;
+//     if (customWord) {
+//         wordId = customWordId;
+//     } else {
+//         wordId = getPuzzleId(puzzleWord);
+//     }
+//     // console.log(getPuzzleId(puzzleWord));
+//     let attemps = numberOfAttempts - 1;
+//     let myHTMLString;
+//     if (gameResult == "win") {
+//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
+//             + "<p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
+//     } else {
+//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
+//             " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
+//     }
+
+//     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
+//     return myScreenshot;
+// }
 
 //The API call doesnt exist anymore
 // function convertImgURL(image) {
