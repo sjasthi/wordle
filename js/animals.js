@@ -46,6 +46,7 @@ function getLanguage(word) {
 
 //Get word of the day in a specified language
 function getPuzzleWord() {
+
     var word;
     $.ajax({
         async: false,
@@ -78,6 +79,8 @@ function loadPuzzleGame() {
     if(word != "") {
         console.log("Cookie is NOT Empty!")
         console.log(word);
+        //Sharon Shin readTextFile testing code
+        readTextFile("words.txt");
         let saveData = getCookie("tableData");
         fillPuzzleWord (word);
         buildTables();
@@ -1103,6 +1106,51 @@ function screenshot() {
     document.getElementById("stat_modal").style.display = "block";
 }
 
+function readDictionary(file) {
+    var words = [];
+    const f = require('fs');
+    const readline = require('readline');
+    var r = readline.createInterface({
+        input : f.createReadStream(file)
+    });
+    r.on('line', function (text) {
+        console.log(text);
+        words.push(text);
+        words.sort();
+    });
+    console.log(words);
+}
+
+function readTextFile(file)
+{
+    let rawFile = new XMLHttpRequest();
+    let allText = "";
+    let words;
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                allText = rawFile.responseText;
+                console.log(allText);
+                words = allText.split("\n")
+                for(let i=0; i<words.length; i++) {
+                    words[i] = words[i].replace("\r", "");
+                    words[i] = words[i].replace(/[^a-zA-Z]/g, '')
+                }
+                words = words.sort();
+                console.log(words);
+                return words;
+            }
+        }
+    }
+    rawFile.send(null);
+    // console.log(rawFile);
+
+}
+
 // function generateScreenShot() {
 //     let tableImage = document.querySelector("#game_panel").cloneNode(true);
 //     let numberOfChar = tableImage.querySelectorAll("td").length;
@@ -1175,3 +1223,5 @@ function screenshot() {
 //     });
 //     myScreenshot.remove();
 // }
+
+
