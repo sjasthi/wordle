@@ -75,12 +75,14 @@ function getCustomWord(pageid) {
 
 function loadPuzzleGame() {
     var word = getCookie ("savedWord");
+   
     //If cookies exist
     if(word != "") {
         console.log("Cookie is NOT Empty!")
         console.log(word);
         //Sharon Shin readTextFile testing code
-        readTextFile("words.txt");
+        // readTextFile("words.txt");
+        
         let saveData = getCookie("tableData");
         fillPuzzleWord (word);
         buildTables();
@@ -1151,77 +1153,22 @@ function readTextFile(file)
 
 }
 
-// function generateScreenShot() {
-//     let tableImage = document.querySelector("#game_panel").cloneNode(true);
-//     let numberOfChar = tableImage.querySelectorAll("td").length;
-//     for (var i = 0; i < numberOfChar; i++) {
-//         tableImage.querySelectorAll("td")[i].innerHTML = "";
-//         tableImage.querySelectorAll("td")[i].style.height='20px';
-//         tableImage.querySelectorAll("td")[i].style.width='20px';
-//         tableImage.querySelectorAll("td")[i].style.border='1px solid';
-//     }
-//     tableImage.querySelector ("#character_table").setAttribute("style", "border: 1px solid;; margin-left: 200px; "); 
-//     let myScreenshot = tableImage;
+function binarySearch (word, list) {
+    let l = 0; 
+    let r = list.length - 1;
+    while (l <= r) {
+        let mid = Math.floor((l + r)/2);
+        if (list[mid] == word) {
+            return true;
+        } else if (list[mid] < word) {
+            l = mid + 1;
+        } else {
+            r = mid - 1
+        }
+    }
+    return false;
+}
 
-//     let wordId = 0;
-//     if (customWord) {
-//         wordId = customWordId;
-//     } else {
-//         wordId = getPuzzleId(puzzleWord);
-//     }
-//     // console.log(getPuzzleId(puzzleWord));
-//     let attemps = numberOfAttempts - 1;
-//     let myHTMLString;
-//     if (gameResult == "win") {
-//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>Solved: Wordle #" + wordId + " - " + attemps + "/8 </h1>" 
-//             + "<p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-//     } else {
-//         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
-//             " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-//     }
 
-//     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
-//     return myScreenshot;
-// }
-
-//The API call doesnt exist anymore
-// function convertImgURL(image) {
-//     var url = 'http://data-uri-to-img-url.herokuapp.com/images.json';
-//     $.ajax({
-//             type: 'POST',
-//             url: url,
-//             async: false,
-//             data: image,
-//             contentType: "application/json",
-//             dataType: 'jsonp',
-//             success: function(json) {
-//             console.log(json.url);
-//         },
-//         error: function(e) {
-//             console.log(e.message);
-//         }
-//     });
-// }
-
-// function shareFacebook() {
-//     window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(srcImage)+'&t='+encodeURIComponent("wordle"),'sharer','toolbar=0,status=0,width=626,height=436');
-// }
-
-// function screenshot() {
-//     let myScreenshot = generateTextScreenShot();
-//     console.log (myScreenshot);
-//     document.body.appendChild(myScreenshot);
-//     html2canvas(myScreenshot, {scale:0.75}).then(canvas => {
-//         var myImage = canvas.toDataURL("image/png");
-//         console.log (myImage);
-//         var tWindow = window.open("");
-//         $(tWindow.document.body)
-//             .html("<img id='Image' src=" + myImage + "></img>")
-//             .ready(function () {
-//                 tWindow.focus();
-//             });
-//     });
-//     myScreenshot.remove();
-// }
 
 
