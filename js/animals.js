@@ -1108,21 +1108,6 @@ function screenshot() {
     document.getElementById("stat_modal").style.display = "block";
 }
 
-function readDictionary(file) {
-    var words = [];
-    const f = require('fs');
-    const readline = require('readline');
-    var r = readline.createInterface({
-        input : f.createReadStream(file)
-    });
-    r.on('line', function (text) {
-        console.log(text);
-        words.push(text);
-        words.sort();
-    });
-    console.log(words);
-}
-
 function readTextFile(file)
 {
     let rawFile = new XMLHttpRequest();
