@@ -15,8 +15,6 @@ const userInfo = [];
 const userStats = [];
 var tableData = [];
 var adminName = "";
-let words;
-
 
 
 /* Function which fills word with input. Used for custom plays
@@ -1113,6 +1111,8 @@ function readTextFile(file)
 {
     let rawFile = new XMLHttpRequest();
     let allText = "";
+    var adminName = "";
+    let words = [];
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
     {
@@ -1129,22 +1129,22 @@ function readTextFile(file)
                 }
                 words = words.sort();
                 console.log(words);
-                return words;
             }
         }
     }
     rawFile.send(null);
+    return words;
     //console.log(rawFile);
 }
 
-function binarySearch (word) {
+function binarySearch (word, list) {
     let l = 0;
-    let r = words.length - 1;
+    let r = list.length - 1;
     while (l <= r) {
         let mid = Math.floor((l + r)/2);
-        if (words[mid] == word) {
+        if (list[mid] == word) {
             return true;
-        } else if (words[mid] < word) {
+        } else if (list[mid] < word) {
             l = mid + 1;
         } else {
             r = mid - 1

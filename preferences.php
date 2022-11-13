@@ -1,6 +1,6 @@
 
 <script>
-    let CHECK_WORD_VALIDITY = false;
+    let CHECK_WORD_VALIDITY = true;
     function setCheck_Word_Validity(b){
         CHECK_WORD_VALIDITY = b;
     }
@@ -8,12 +8,8 @@
         let guessWord = document.getElementById("input_box").value.toLowerCase();
         guessWord = guessWord.trim();
         if (CHECK_WORD_VALIDITY) {
-            // alert(guessWord);
-            readTextFile("words.txt");
-            // alert(guessWord);
-            // let list = ['around', 'cute', 'grunt', 'hello', 'incline', 'plant', 'ponder', 'pretty', 'smile', 'trust', 'write'];
-            let exists = binarySearch(guessWord, list);
-            // alert(exists);
+            let words = readTextFile("words.txt");
+            let exists = binarySearch(guessWord, words);
             if(exists) {
                 processGuess();
             } else {

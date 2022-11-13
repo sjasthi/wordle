@@ -327,8 +327,8 @@ p, a {
 }
 
 #tools_title{
-    position: absoulte;
-    top:20%;
+    /*position: absolute;*/
+    /*top: 10%;*/
     text-align: center;
 }
 
@@ -341,15 +341,19 @@ p, a {
 #report_button{
     position: absolute;
     top: 120%;
-    left: 35%;
+    left: 40%;
 }
 
 #import_button{
     position: absolute;
     top: 120%;
-    left: 55%;
-    
-    
+    left: 51%;
+}
+
+#validation_button{
+    position: absolute;
+    top: 240%;
+    left: 43%;
 }
 
 .function{
