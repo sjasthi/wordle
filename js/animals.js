@@ -15,6 +15,7 @@ const userInfo = [];
 const userStats = [];
 var tableData = [];
 var adminName = "";
+let words;
 
 
 
@@ -1112,7 +1113,6 @@ function readTextFile(file)
 {
     let rawFile = new XMLHttpRequest();
     let allText = "";
-    let words;
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
     {
@@ -1134,18 +1134,17 @@ function readTextFile(file)
         }
     }
     rawFile.send(null);
-    // console.log(rawFile);
-
+    //console.log(rawFile);
 }
 
-function binarySearch (word, list) {
-    let l = 0; 
-    let r = list.length - 1;
+function binarySearch (word) {
+    let l = 0;
+    let r = words.length - 1;
     while (l <= r) {
         let mid = Math.floor((l + r)/2);
-        if (list[mid] == word) {
+        if (words[mid] == word) {
             return true;
-        } else if (list[mid] < word) {
+        } else if (words[mid] < word) {
             l = mid + 1;
         } else {
             r = mid - 1

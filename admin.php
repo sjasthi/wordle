@@ -95,9 +95,8 @@ require 'db_configuration.php';
             </div>
             <p>IMPORT</p>
         </button>
-
-        
     </div>
+
 </div>
 
 <!--  Help Modal      -->
@@ -140,8 +139,6 @@ include('report.php');
     function fillAdminTitle(){
         document.getElementById("title").innerHTML = getAdminName();
     }
-
-
 </script>
 </body>
 </html>
