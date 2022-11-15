@@ -1,5 +1,5 @@
 <?php
-require 'db_configuration.php';
+    require 'db_configuration.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,7 +126,7 @@ include('statistics_modal.php');
             statModal.style.display = "none";
         }
     }
-    
+
     // var languageElement = document.getElementById("lang");
     // var lengthElement = document.getElementById("length");
     // var attemptsElement = document.getElementById("attempts");

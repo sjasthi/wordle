@@ -1,5 +1,5 @@
 <?php
-require 'db_configuration.php';
+    require 'db_configuration.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,12 +152,15 @@ include('report.php');
         document.getElementById("title").innerHTML = getAdminName();
     }
 
+    let CHECK_WORD_VALIDITY =  false;
+
     function onOrOffValidation(){
         if(CHECK_WORD_VALIDITY == false){
-            setCheck_Word_Validity(true);
+            CHECK_WORD_VALIDITY = true;
         } else {
-            setCheck_Word_Validity(false);
+            CHECK_WORD_VALIDITY = false;
         }
+        localStorage.setItem('checkWordValidity', CHECK_WORD_VALIDITY);
         alert("CHECK_WORD_VALIDITY = " + CHECK_WORD_VALIDITY);
     }
 </script>

@@ -17,6 +17,7 @@ var tableData = [];
 var adminName = "";
 
 
+
 /* Function which fills word with input. Used for custom plays
 */
 function fillCustomWord(word, id) {
@@ -1152,7 +1153,6 @@ function binarySearch (word, list) {
     }
     return false;
 }
-
 
 
 

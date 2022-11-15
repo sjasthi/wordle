@@ -1,14 +1,17 @@
 
 <script>
-    let CHECK_WORD_VALIDITY = true;
-    function setCheck_Word_Validity(b){
-        CHECK_WORD_VALIDITY = b;
-    }
+
     function validation() {
         let guessWord = document.getElementById("input_box").value.toLowerCase();
         guessWord = guessWord.trim();
+        let CHECK_WORD_VALIDITY = "";
+        if(localStorage.getItem('checkWordValidity') == null){
+            CHECK_WORD_VALIDITY = false;
+        } else {
+            CHECK_WORD_VALIDITY = localStorage.getItem('checkWordValidity');
+        }
         if (CHECK_WORD_VALIDITY) {
-            let words = readTextFile("words.txt");
+            let words = readTextFile("dictionary.txt");
             let exists = binarySearch(guessWord, words);
             if(exists) {
                 processGuess();
