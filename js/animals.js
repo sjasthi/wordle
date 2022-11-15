@@ -15,6 +15,8 @@ const userInfo = [];
 const userStats = [];
 var tableData = [];
 var adminName = "";
+let dictionaryList = [];
+let CHECK_VALIDITY = false;
 
 
 
@@ -72,17 +74,41 @@ function getCustomWord(pageid) {
     return word;
 }
 
+function getDictionaryFile() {
+    let fileName = "";
+    $.ajax({
+        async: false,
+        url: "lib/helper_functions.php",
+        type: "POST",
+        data: {method: "getDictionaryFile"}
+    }).done(function(data) {
+        fileName = data;
+    });
+    return fileName;
+}
+
+function getCheckValidity() {
+    $.ajax({
+        async: false,
+        url: "lib/helper_functions.php",
+        type: "POST",
+        data: {method: "getCheckWordValidity"}
+    }).done(function(data) {
+        CHECK_VALIDITY = data;
+    });
+}
+
 
 function loadPuzzleGame() {
+    let fileName = getDictionaryFile();
+    getCheckValidity();
+    dictionaryList = readTextFile(fileName);
     var word = getCookie ("savedWord");
    
     //If cookies exist
     if(word != "") {
         console.log("Cookie is NOT Empty!")
         console.log(word);
-        //Sharon Shin readTextFile testing code
-        // readTextFile("words.txt");
-        
         let saveData = getCookie("tableData");
         fillPuzzleWord (word);
         buildTables();
@@ -526,6 +552,15 @@ function processGuess() {
     }).done(function(data) {
         guessWordLength = data;
     });
+
+    if (CHECK_VALIDITY) {
+        let exists = binarySearch(guessWord, dictionaryList);
+        if(!exists) {
+            alert("Guess word doesn't exists in dictionary");
+            document.getElementById("input_box").value = "";
+            return;
+        }
+    }
 
     // Guard clauses to catch guesses of incorrect length or language.
     if(guessWordLanguage == puzzleWordLanguage) {

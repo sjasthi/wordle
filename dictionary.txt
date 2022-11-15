@@ -9,3 +9,6 @@ trust
 cute
 incline
 smile
+what
+seal
+seed

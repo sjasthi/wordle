@@ -75,17 +75,13 @@
 
 <div id="submission_panel">
     <!-- Form calls Javascript function processGuess when the submit button is clicked. -->
-    <form action="" method="post" autocomplete="off" onsubmit="validation();return false;">
+    <form action="" method="post" autocomplete="off" onsubmit="processGuess();return false;">
         <input id="input_box" type="text" name="input_box">
         <input id="submit_button" type="submit" value="Submit" name="submit">
     </form>
 </div>
 
-<!--  Preferences  -->
-<?php $page_title = 'wordle > preferences';
-# Page Content
-include('preferences.php');
-?>
+
 
 <!--  Help Modal      -->
 <?php $page_title = 'wordle > help modal';

@@ -1,5 +1,5 @@
 <?php
-
+require '../preferences.php';
 require '../db_configuration.php';
 
 // These conditionals are taking the method name and args sent by the ajax code in animals.js
@@ -303,6 +303,13 @@ function getId($word) {
     return $row['id'];
 }
 
+function getDictionaryFile() {
+    return DICTIONARY_FILE;
 
+}
+
+function getCheckWordValidity() {
+    return CHECK_WORD_VALIDITY;
+}
 
 ?>
