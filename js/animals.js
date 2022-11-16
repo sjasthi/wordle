@@ -16,7 +16,7 @@ const userStats = [];
 var tableData = [];
 var adminName = "";
 let dictionaryList = [];
-let CHECK_VALIDITY = false;
+let CHECK_VALIDITY = true;
 
 
 
@@ -1073,7 +1073,7 @@ function generateTextScreenShot() {
     let attempts = tableData.length /2;
     if (gameResult == "win") {
         myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 100px;'>Solved: Wordle #" + wordId + " - " + attempts + "/8 </h1>" 
-            + "<p style = 'text-align: center;font-size:80px;'>telugupuzzles.com</p>";
+            + "<p style = 'text-align: center;font-size:80px;'>wordle.telugupuzzles.com</p>";
     } 
     // else {
     //     myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
@@ -1157,20 +1157,18 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 allText = rawFile.responseText;
-                console.log(allText);
                 words = allText.split("\n")
                 for(let i=0; i<words.length; i++) {
                     words[i] = words[i].replace("\r", "");
-                    words[i] = words[i].replace(/[^a-zA-Z]/g, '')
+                    words[i] = words[i].trim();
                 }
                 words = words.sort();
-                console.log(words);
+                // console.log(words);
             }
         }
     }
     rawFile.send(null);
     return words;
-    //console.log(rawFile);
 }
 
 function binarySearch (word, list) {

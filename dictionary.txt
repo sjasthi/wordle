@@ -1,8 +1,8 @@
       hello
 plant
-around123
-ponder -?
-grunt
+   around    
+ponder    
+     grunt
 write
 pretty
 trust
@@ -12,3 +12,10 @@ smile
 what
 seal
 seed
+    చదువు     
+సగము
+బరువు
+ring
+soul
+supper
+song
