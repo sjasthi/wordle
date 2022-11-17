@@ -553,7 +553,7 @@ function processGuess() {
         guessWordLength = data;
     });
 
-    if (CHECK_VALIDITY) {
+    if (CHECK_VALIDITY && (!customWord)) {
         let exists = binarySearch(guessWord, dictionaryList);
         if(!exists) {
             alert("Guess word doesn't exists in dictionary");
@@ -1163,7 +1163,7 @@ function readTextFile(file)
                     words[i] = words[i].trim();
                 }
                 words = words.sort();
-                console.log(words);
+                // console.log(words);
             }
         }
     }
