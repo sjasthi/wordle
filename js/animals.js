@@ -16,7 +16,7 @@ const userStats = [];
 var tableData = [];
 var adminName = "";
 let dictionaryList = [];
-let CHECK_VALIDITY = true;
+let CHECK_VALIDITY = false;
 
 
 
@@ -1163,7 +1163,7 @@ function readTextFile(file)
                     words[i] = words[i].trim();
                 }
                 words = words.sort();
-                // console.log(words);
+                console.log(words);
             }
         }
     }
