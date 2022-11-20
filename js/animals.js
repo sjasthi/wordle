@@ -183,23 +183,25 @@ function buildTables() {
         guessLimit = data;
     });
 
-    if(puzzleWordLanguage == "English") {
-        if(guessLimit == 8) {
-            tdTag = "<td style='width:100px;height:70px;font-size:48px'></td>"
-        } else if (guessLimit == 10) {
-            tdTag = "<td style='width:90px;height:60px;font-size:42px'></td>"
-        } else {
-            tdTag = "<td style='width:80px;height:50px;font-size:36px'></td>"
-        }
-    } else {
-        if(guessLimit == 8) {
-            tdTag = "<td style='width:100px;height:70px;font-size:36px'></td>"
-        } else if (guessLimit == 10) {
-            tdTag = "<td style='width:90px;height:60px;font-size:30px'></td>"
-        } else {
-            tdTag = "<td style='width:80px;height:50px;font-size:24px'></td>"
-        }
-    }
+    tdTag = "<td style='width:85px;height:55px;font-size:27px'></td>";
+
+    // if(puzzleWordLanguage == "English") {
+    //     if(guessLimit == 8) {
+    //         tdTag = "<td style='width:70px;height:50px;font-size:36px'></td>"
+    //     } else if (guessLimit == 10) {
+    //         tdTag = "<td style='width:60px;height:40px;font-size:36px'></td>"
+    //     } else {
+    //         tdTag = "<td style='width:50px;height:30px;font-size:36px'></td>"
+    //     }
+    // } else {
+    //     if(guessLimit == 8) {
+    //         tdTag = "<td style='width:70px;height:50px;font-size:36px'></td>"
+    //     } else if (guessLimit == 10) {
+    //         tdTag = "<td style='width:60px;height:40px;font-size:36px'></td>"
+    //     } else {
+    //         tdTag = "<td style='width:50px;height:30px;font-size:36px'></td>"
+    //     }
+    // }
 
     for(let i = 0; i < puzzleWordLength; i++) {
         cells = cells + tdTag;
@@ -208,9 +210,9 @@ function buildTables() {
         tableRows = tableRows + "<tr>" + cells + "</tr>";
     }
 
-    document.getElementById("clue_box").innerHTML = "<p></p><p>Click <a href='#' onclick='loadClue()'>here</a> to see a clue!</p>";
+    document.getElementById("clue_box").innerHTML = "<p>Click <a href='#' onclick='loadClue()'>here</a> to see a clue!</p>";
     document.getElementById("character_table").innerHTML = tableRows;
-    document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
+    document.getElementById("game_message").innerHTML = "<p>Puzzle Word Language: " + puzzleWordLanguage +
         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>"
 
 }
@@ -283,7 +285,7 @@ function loadSaveData(saveData) {
     if(latestResultString == "11111" || latestResultString == "1111" || latestResultString == "111") {
         gameResult = "win";
         document.getElementById("game_message").innerHTML =
-            "<p></p><p>Congratulations!</p><p>You can now share your complete puzzle on social media.</p>" +
+            "<p>Congratulations!</p><p>You can now share your complete puzzle on social media.</p>" +
             "<p>Click <a href='javascript:screenshot();'>here</a> to share.</p>";
         document.getElementById("submission_panel").innerHTML =
             '<form action="" method="post" autocomplete = "off" onsubmit="processGuess();return false;">' +
@@ -294,7 +296,7 @@ function loadSaveData(saveData) {
         if(numberOfWords == guessLimit) {
             gameResult = "loss";
             document.getElementById("game_message").innerHTML =
-                "<p></p><p>Sorry! You have run out of guesses... Good luck next time!</p>";
+                "<p>Sorry! You have run out of guesses... Good luck next time!</p>";
             document.getElementById("submission_panel").innerHTML =
                 '<form action="" method="post" autocomplete = "off" onsubmit="processGuess();return false;">' +
                 '<input id="input_box" type="text" name="input_box" disabled>' +
@@ -459,32 +461,39 @@ function updateMenus() {
     }
 
     // update menus
+    let innerHTML = "";
     if(userRole == "GUEST") {
-        document.getElementById("profile_dropdown").innerHTML =
-            "<p id='profile_menu_1'>Access Level: GUEST</p>" +
-            "<p id='profile_menu_2' style='color:darkGray'>Create Custom Word</p>" +
-            "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
-            "<p id='profile_menu_4' style='color:darkGray'>Custom Word List</p>" +
-            "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
+        innerHTML = "<p id='profile_menu_1'>Access Level: GUEST</p>" +
+        "<p id='profile_menu_2' style='color:darkGray'>Create Custom Word</p>" +
+        "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
+        "<p id='profile_menu_4' style='color:darkGray'>Custom Word List</p>" +
+        "<a id='profile_menu_5' href='login_page.php'>Log In</a>";
     } else if(userRole == "USER") {
-        document.getElementById("profile_dropdown").innerHTML =
-            "<p id='profile_menu_1'>Access Level: USER</p>" +
-            "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
-            "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
-            "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
-            "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
+        innerHTML = "<p id='profile_menu_1'>Access Level: USER</p>" +
+        "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
+        "<p id='profile_menu_3' style='color:darkGray'>Puzzle Word List</p>" +
+        "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
+        "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-        document.getElementById("profile_dropdown").innerHTML =
+        // document.getElementById("admin_name").innerHTML = userData[3].toUpperCase() + " / ADMIN";
+        adminName = userData[3].toUpperCase();
+        innerHTML =
+            "<p>"+ adminName + "</p>" +
             "<p id='profile_menu_1'>Access Level: ADMIN</p>" +
+            "<a href='admin.php'>Admin Function</a>" +
             "<a id='profile_menu_2' href='create_custom_word.php' style='color:black'>Create Custom Word</a>" +
             "<a id='profile_menu_3' href='list_words.php' style='color:black'>Puzzle Word List</a>" +
             "<a id='profile_menu_4' href='list_custom_words.php' style='color:black'>Custom Word List</a>" +
             "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
-        document.getElementById("admin_access").style.display = "block";
-        document.getElementById("admin_name").innerHTML = userData[3].toUpperCase() + " / ADMIN";
-        adminName = userData[3].toUpperCase();
     } else {
         alert("Unable to build menus. No access level data available.");
+    }
+
+    if (innerHTML != "") {
+        document.getElementById("profile_dropdown").innerHTML = innerHTML;
+        document.getElementById("profile_dropdown_collapse").innerHTML = innerHTML +
+        "<a onclick='showHelpModal()'>Help</a>" +
+        "<a onclick='showStatModal()'>Statistic</a>";
     }
 }
 
@@ -635,7 +644,7 @@ function processGuess() {
                 document.getElementById("stat_modal").style.display = "block";
             }
             document.getElementById("game_message").innerHTML =
-                "<p></p><p>Congratulations!</p><p>You can now share your complete puzzle on social media.</p>" +
+                "<p>Congratulations!</p><p>You can now share your complete puzzle on social media.</p>" +
                 "<p>Click <a href='javascript:screenshot();'>here</a> to share.</p>";
 
             document.getElementById("submission_panel").innerHTML =
@@ -653,7 +662,6 @@ function processGuess() {
                     updateStats(gameResult);
                 }
                 document.getElementById("game_message").innerHTML =
-                    "<p></p>" +
                     "<p>Sorry! You have run out of guesses...Good luck next time!</p>";
                     // "<p>Click <a href='javascript:screenshot();'>here</a> to share your puzzle on social media.</p>";
 
@@ -904,9 +912,9 @@ function loadClue() {
     }
 
     if(clue != "") {
-        document.getElementById("clue_box").innerHTML = "<p></p><p>Your clue is:</p><p>" + clue + "</p>";
+        document.getElementById("clue_box").innerHTML = "<p>Your clue is:</p><p>" + clue + "</p>";
     } else {
-        document.getElementById("clue_box").innerHTML = "<p></p><p>Sorry! There is no clue for this word!</p><p>Please guess the word.</p>";
+        document.getElementById("clue_box").innerHTML = "<p>Sorry! There is no clue for this word!</p><p>Please guess the word.</p>";
     }
 }
 
