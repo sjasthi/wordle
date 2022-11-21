@@ -5,20 +5,11 @@
 <header>
     <div class="header_bar">
         <div id="main_screen_logo">
-            <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" class = "img_button"></a>
+            <img src="images/logo.png" alt="10000 Icon" class = "img_button" href="https://telugupuzzles.com">
         </div>
-        <div id="admin_access">
-            <ul id="admin_profile">
-                <li id="admin_button"><span>
-                        <img src="images/admin_icon.png" ><a id="admin_name" href="admin.php"></a>
-                    </span>
-                </li>
-            </ul>
-        </div>
+      
         <div>
-            <button onclick="window.location.href='index.php'">
-                <h1 id="title">Wordle</h1>
-            </button>
+            <h1 id="title" onclick="window.location.href='index.php'">Wordle</h1>
         </div>
         <div id="menu_buttons">
             <div id="help_button">
@@ -43,6 +34,14 @@
                     <a id="profile_menu_5" href="login_page.php">Log In</a>
                 </div>
             </div>
+            <!-- <div id="admin_access">
+                <ul id="admin_profile">
+                    <li id="admin_button"><span>
+                            <img src="images/admin_icon.png"><a id="admin_name" href="admin.php"></a>
+                        </span>
+                    </li>
+                </ul>
+            </div> -->
         </div>
 
         <div id="menu_buttons_collapse">

@@ -82,10 +82,10 @@
     </form>
 </div>
 
-<div id="game_dialog">
-    <div id="game_message"></div>
-    <div id="clue_box"></div>
-</div>
+<!-- <div id="game_dialog"> -->
+<div id="game_message"></div>
+<div id="clue_box"></div>
+<!-- </div> -->
 
 
 <!--  Help Modal      -->

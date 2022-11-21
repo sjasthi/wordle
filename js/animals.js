@@ -476,6 +476,7 @@ function updateMenus() {
         "<a id='profile_menu_5' href='#' onclick='logOut();return false;'>Log Out</a>";
     } else if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
         // document.getElementById("admin_name").innerHTML = userData[3].toUpperCase() + " / ADMIN";
+        // document.getElementById("admin_access").style.visibility = "visible";
         adminName = userData[3].toUpperCase();
         innerHTML =
             "<p>"+ adminName + "</p>" +
