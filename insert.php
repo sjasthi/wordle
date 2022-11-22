@@ -14,7 +14,7 @@ require 'db_configuration.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<header>
+<!-- <header>
     <div class="header_bar">
         <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
@@ -55,7 +55,9 @@ require 'db_configuration.php';
             </div>
         </div>
     </div>
-</header>
+</header> -->
+
+<?php include 'navigation.php';?>
 
 <body onload=updateMenus()>
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/custom_page.css">
-    <link rel="stylesheet" href="css/menu.css">
+    <!-- <link rel="stylesheet" href="css/menu.css"> -->
     <script src="js/animals.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
@@ -18,7 +18,7 @@
     </style>
 </head>
 
-<header>
+<!-- <header>
     <div class="header_bar">
         <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
@@ -61,7 +61,8 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
+<?php include 'navigation.php';?>
 
 <body onload=updateMenus()>
 <div class="left_bar">

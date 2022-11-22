@@ -5,6 +5,7 @@
 
 p, div, pre {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 html {
@@ -15,10 +16,10 @@ body {
     max-width: 100%;
 }
 
-header {
+/* header {
     width: 100%;
     height: 120px;
-}
+} */
 
 
 
@@ -32,7 +33,7 @@ td {
 
 
 
-#game_title {
+/* #game_title {
     position: absolute;
     margin: 20px 20px 20px 380px;
     width: 1150px;
@@ -41,15 +42,15 @@ td {
     font-size: 64px;
     font-weight: bold;
     color: white;
-}
+} */
 
 
-#secondary_screen_buttons {
+/* #secondary_screen_buttons {
     margin: 20px 20px 20px 20px;
     width: 400px;
     height: 80px;
     white-space: nowrap;
-}
+} */
 
 #back_button {
     display: inline-block;
@@ -76,30 +77,29 @@ td {
     height: 80px;
 }
 
-#clue_box {
+/* #game_dialog {
     background-color: white;
     position: absolute;
     margin-left: 5%;
-    margin-top: 250px;
-    /* margin-top: 10%; */
+    margin-top: -600px;
     padding: 20px;
-    width: 350px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     font-weight: bold;
     border-style: double;
     border-width: 5px;
     border-color: goldenrod;
-}
+} */
 
 
-#game_panel {
+/* #game_panel {
     position: absolute;
-    margin-left: 40%;
+    margin-left: 40%; */
     /* display: flex; */
-    width: 825px;
-    height: 660px;
-    white-space: nowrap;
-}
+    /* width: 825px; */
+    /* height: 660px; */
+    /* white-space: nowrap;
+} */
 
 /* #game_panel {
     background-color: lightgray;
@@ -113,28 +113,44 @@ td {
     border-style: ridge;
 } */
 
-#character_tile_panel {
-    /* display: inline-block; */
+/* #character_tile_panel {
+    display: inline-block;
     margin: 20px;
     width: 380px;
     height: 625px;
-}
+} */
 
-#animal_tile_panel {
+/* #animal_tile_panel {
     display: inline-block;
     margin: 20px 20px 20px 0px;
     width: 380px;
     height: 625px;
-}
+} */
 
 #game_message {
     background-color: white;
     position: absolute;
-    margin-left: 75%;
-    margin-top: 250px;
-    /* margin-top: 10%; */
-    padding: 20px;
-    width: 350px;
+    margin-left: 70%;
+    /* margin-right: 5%; */
+    margin-top: -600px;
+    padding: 10px;
+    max-width: 350px;
+    width: 20%;
+    height: 200px;
+    font-weight: bold;
+    border-style: double;
+    border-width: 5px;
+    border-color: goldenrod;
+}
+
+#clue_box {
+    background-color: white;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -600px;
+    padding: 10px;
+    max-width: 350px;
+    width: 20%;
     height: 200px;
     font-weight: bold;
     border-style: double;
@@ -143,17 +159,18 @@ td {
 }
 
 #character_table {
-    position: absolute;
+    /* position: relative; */
     background-color:white;
-    /* margin-left: auto;
-    margin-right: 0px; */
-    width: 360px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
     height: 360px;
-    border: 2px solid;
+    border: 1px solid;
     border-collapse: collapse;
 }
 
-#animal_table {
+/* #animal_table {
     background-color:white;
     margin-left: 0px;
     margin-right: auto;;
@@ -161,43 +178,46 @@ td {
     height: 360px;
     border: 5px solid;
     border-collapse: collapse;
-}
+} */
 
 #submission_panel {
-    position: absolute;
+    /* position: absolute; */
     display:block;
-    margin-top: 650px;
-    /* margin-top: 35%; */
-    margin-left: 33%;
-    margin-bottom: 50px;
-    width: 825px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: 400px;
     height: 120px;
     white-space: nowrap;
 }
 
 
+
+
 #input_box {
-    position: absolute;
-    margin-left: 20px;
-    /* margin-top: 30px; */
-    width: 585px;
-    height: 70px;
-    font-size: 48px;
+    /* position: absolute; */
+    /* margin-left: 20px; */
+    width: 400px;
+    height: 60px;
+    font-size: 30px;
     border: 2px solid;
     border-radius: 20px;
 }
 
 #submit_button {
-    position: absolute;
-    margin-left: 80%;
-    width: 175px;
-    height: 70px;
-    font-size: 24px;
+    /* position: absolute; */
+    /* margin-left: 80%; */
+    margin-left: 10px;
+    width: 120px;
+    height: 60px;
+    font-size: 20px;
     color:white;
     background-color:#037ec6;
     border-color:#037ec6;
     border-radius: 20px;
 }
+
 
 
 
@@ -221,7 +241,7 @@ td {
     background: #179b77;
 }
 
-.top-row:after {
+/* .top-row:after {
     content: "";
     display: table;
     clear: both;
@@ -240,7 +260,7 @@ td {
 .button-block {
     display: block;
     width: 100%;
-}
+} */
 
 #body_panel {
     width: 100%;
@@ -249,7 +269,7 @@ td {
     font-size: 24px;
 }
 
-#form_panel {
+/* #form_panel {
     background-color: white;
     position: absolute;
     padding-top: 40px;
@@ -262,7 +282,7 @@ td {
     border-style: double;
     border-width: 10px;
     border-color: goldenrod;
-}
+} */
 
 
 
@@ -290,13 +310,13 @@ td {
     resize: none;
 }
 
-.form_panel_submit {
+/* .form_panel_submit {
     width: 100px;
     height: 50px;
     font-size: 24px;
     color:white;
     background-color:black;
-}
+} */
 
 /* .apply {
     display: flex;
@@ -336,19 +356,76 @@ td {
     font-weight: bold;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .apply {
         font-size: 1.125rem;
         padding: 1rem 2rem;
     }
-}
+} */
 
 @media screen and (max-width: 1200px) {
+    /* #game_dialog {
+        position: relative;
+        display: block;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    } */
     #clue_box {
-        margin-top: 800px;
+        margin-top: 0;
+        margin-left: 5%;
+        width: 38%;
+        max-width: 350px;
     }
-        
     #game_message {
-        margin-top: 800px;
+        margin-top: 0;
+        margin-left: 55%;
+        width: 38%;
+        max-width: 350px;
     }
+}
+
+@media screen and (max-width: 600px) {
+    #submission_panel {
+        width: 80%;
+    }
+    #input_box {
+        width: 100%;
+        height: 60px;
+        display: block;
+    }
+
+    #submit_button {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        display: block;
+    }
+
+    #clue_box {
+        margin-top: 30px;
+        margin-left: 1%;
+        width: 43%;
+        padding: 3px;
+    }
+    #game_message {
+        margin-top: 30px;
+        margin-left: 50%;
+        width: 43%;
+        padding: 3px;
+    }
+
+    #character_table {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    /* #game_dialog {
+        position: relative;
+        display: block;
+        margin-top: 35px;
+        margin-left: auto;
+        margin-right: auto;
+    } */
 }
