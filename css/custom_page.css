@@ -11,8 +11,8 @@ p, div, pre {
 
 .back {
     position: absolute;
-    top: 165px;
-    left: 2.5%;
+    top: 100px;
+    left: 2.9rem;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
@@ -38,7 +38,6 @@ p, div, pre {
     height: 20px;
     border: 4px solid #FBF6F0;
     transition: .5s;
-    ;
 }
 
 .back li.prev span {
@@ -69,8 +68,8 @@ p, div, pre {
 
 .add {
     position: absolute;
-    top: 250px;
-    left: 2.5%;
+    top: 180px;
+    left: 2.9rem;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
@@ -107,8 +106,6 @@ p, div, pre {
     top: 19%;
     left: 45%;
 }
-
-
 
 #secondary_screen_logo {
     margin: 0;
@@ -159,8 +156,8 @@ body {
 
 .custom_word_modal {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 20rem;
+    left: 48%;
     transform: translate(-50%, -50%);
     width: 425px;
     background: white;
@@ -277,7 +274,6 @@ input[type="submit"]:hover {
 #customerTableView {
     margin-left: 5%;
     width: 95%;
-
 }
 
 .table_title{
@@ -321,8 +317,8 @@ a {
 
 #capability {
     position: absolute;
-    top: 13rem;
-    left: 50%;
+    top: 10rem;
+    left: 49%;
     transform: translate(-50%, -50%);
     width: 425px;
     background: white;
@@ -395,8 +391,6 @@ a {
 
 #import_modal {
     display: none;
-
-
 }
 
 #report_modal {
@@ -457,6 +451,10 @@ a {
 
 
 @media screen and (max-width: 900px) {
+    .back {
+        top: 5.4rem;
+        left: 2.2rem;
+    }
 
     .back li {
         width: 60px;
@@ -473,11 +471,15 @@ a {
         height: 4px;
     }
 
+    .add {
+        top: 9.4rem;
+        left: 2.2rem;
+    }
+
     .add li {
         width: 60px;
         height: 60px;
     }
-    
     
     .add li span.horizontal {
         width: 38px;
@@ -488,19 +490,30 @@ a {
         width: 5px;
         height: 38px;
     }
+
+    #capability {
+        left: 50%;
+    }
+
+    #customerTableView {
+        margin-left: 8%;
+        width: 90%;
+    }
+
+    .custom_word_modal {
+        left: 50%;
+    }
 }
 
 @media screen and (max-width: 750px) {
     .custom_word_modal {
-        top: 450px;
-        width: 70%;
+        top: 20rem;
     }
 
-    /* .back {
-        position: absolute;
-        top: 5.5rem;
-        left: 1.5rem;
-    } */
+    .back {
+        top: 5.1rem;
+        left: 1.6rem;
+    }
 
     .back li {
         width: 40px;
@@ -514,6 +527,11 @@ a {
 
     .back li.prev span:before {
         width: 22px;
+    }
+
+    .add {
+        top: 7.9rem;
+        left: 1.6rem;
     }
 
     .add li {
@@ -532,7 +550,7 @@ a {
     }
 
     #capability {
-        top: 9.8rem;
+        top: 10rem;
         left: 51%;
         width: 200px;
     }
@@ -556,5 +574,9 @@ a {
 
     #import_button p {
         font-size: 12px;
+    }
+
+    #customerTableView {
+        width: 80%;
     }
 }
