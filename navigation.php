@@ -3,7 +3,7 @@
 </head>
 
 <header>
-    <div class="header_bar">
+    <div id = "header_nav" class="header_bar">
         <div id="main_screen_logo">
             <img src="images/logo.png" alt="10000 Icon" class = "img_button" href="https://telugupuzzles.com">
         </div>

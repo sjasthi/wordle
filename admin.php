@@ -69,9 +69,8 @@
 </div>
 
 <div id="capability">
-    <div id="tools_title">
-        <h1>Admin Tools</h1>
-    </div>
+    <h1>Admin Tools</h1>
+
     <div id="report_button">
         <button class="Ibutton" onclick="showReportModal()">
             <div class="icon">
@@ -85,8 +84,6 @@
     </div>
     <!-- IMPORT BUTTON -->
     <div id="import_button">
-        <!-- <button class="admin_btn" onclick="showImportModal()"> -->
-            <!-- <img src="images/import_icon.png" alt="Import Icon"> -->
         <button class="Ibutton" onclick="showImportModal()">
             <div class="icon" onclick="showImportModal()">
                 <svg viewBox="0 0 16 16" class="bi bi-telegram" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">

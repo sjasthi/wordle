@@ -1,7 +1,11 @@
+<!-- Keep min width for menu so it cover the whole table in mobile view -->
+<script>
+    document.getElementById("header_nav").style.minWidth = "850px";
+</script>
 
 <div id="customerTableView">
-<!--    <h1 class="table_title">Custom Word List</h1>-->
-<!--    <hr class="title_border">-->
+   <h1 class="table_title">Custom Word List</h1>
+   <hr class="title_border">
     <table class="display" id="wordTable" style="border: 1px solid; border-collapse: collapse;">
         <div class="table responsive">
             <thead>
