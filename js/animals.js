@@ -316,15 +316,6 @@ function loadSaveData(saveData) {
             } else {
                 userRole = "GUEST";
             }
-
-            // if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-            //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-            //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
-            //         "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
-            // } else {
-            //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-            //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
-            // }
         }
     }
 
@@ -636,6 +627,9 @@ function processGuess() {
             if(customWord) {
                 updateCustomWin();
                 incrementCustomTotal();
+                addShareButton();
+                loadUserStats();
+                document.getElementById("stat_modal").style.display = "block";
             } else {
                 updatePuzzleWin();
                 incrementPuzzleTotal();
@@ -670,16 +664,7 @@ function processGuess() {
                     '<form action="" method="post" autocomplete = "off" onsubmit="processGuess();return false;">' +
                     '<input id="input_box" type="text" name="input_box" disabled>' +
                     '<input id="submit_button" type="submit" value="Submit" name="submit" style="background-color:grey" disabled></form>';
-            } else {
-                // if(userRole == "ADMIN" || userRole == "SUPER_ADMIN") {
-                //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-                //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p>" +
-                //         "<p>Click <a href='javascript:screenshot();'>here</a> to share the puzzle in progress!</p>";
-                // } else {
-                //     document.getElementById("game_message").innerHTML = "<p></p><p>Puzzle Word Language: " + puzzleWordLanguage +
-                //         "</p><p>You have " + guessLimit + " guesses to solve the puzzle!</p><p>Good luck!</p>";
-                // }
-            }
+            } 
         }
 
         // The cookie code is here so that a guess after the game is over doesn't get added to the cookie in error.
@@ -1056,14 +1041,14 @@ function generateTextTable() {
     let textTable = "";
     let i = 1;
     while (i < tableData.length) {
-        textTable += "<p style = 'text-align: center;font-size: 100px;'>";
+        textTable += "<p id = 'screenshot-title' style = 'text-align: center;'>";
         for (var j = 0; j < puzzleWordLength; j++) {
             textTable += selectHTMLCode (tableData[i][j]);
         }
         textTable += "</p>";
         i += 2;
     }
-    textTable += "<p style = 'text-align: center;font-size: 70px;'>&nbsp</p>";
+    textTable += "<p id = 'screenshot-text' style = 'text-align: center;'>&nbsp</p>";
     return textTable;
 }
 
@@ -1081,13 +1066,10 @@ function generateTextScreenShot() {
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
     let attempts = tableData.length /2;
     if (gameResult == "win") {
-        myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 100px;'>Solved: Wordle #" + wordId + " - " + attempts + "/8 </h1>" 
-            + "<p style = 'text-align: center;font-size:80px;'>wordle.telugupuzzles.com</p>";
+        myHTMLString = "<h1 id = 'screenshot-title' style = 'text-align: center;padding-top: 50px;'>Solved: Wordle #" + wordId + " - " + attempts + "/8 </h1>" 
+            + "<p id = 'screenshot-text' style = 'text-align: center;'>wordle.telugupuzzles.com</p>";
     } 
-    // else {
-    //     myHTMLString = "<h1 style = 'text-align: center;padding-top: 50px;font-size: 50px;'>I played wordle #" + wordId + 
-    //         " today</h1> <p style = 'text-align: center;font-size: 30px;'>telugupuzzles.com</p>";
-    // }
+ 
     myScreenshot.insertAdjacentHTML("afterbegin", myHTMLString);
     console.log (myScreenshot);
     return myScreenshot;
