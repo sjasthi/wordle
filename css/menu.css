@@ -5,7 +5,7 @@
     align-content: center;
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     letter-spacing: 2px;
     text-align: center;
@@ -14,58 +14,50 @@
 }
 
 .header_bar{
-    /* width: 100%; */
-    height: 120px;
     background: #ADD8E6;
 }
 
 #main_screen_logo {
     position: absolute;
-    margin-left: 1%;
-    margin-top: 1%;
-    width: 320px;
-    height: 80px;
+    margin: 5px 5px 5px 5px;
 }
 
 #menu_buttons {
-    /* position: absolute;
-    margin: 0px 10px 10px 1650px; */
     display: flex;
     max-width: 100%;
-    height: 80px;
     white-space: nowrap;
 }
 
 #help_button {
-    /* display:inline-block; */
     margin: 5px 5px 5px 0px;
     margin-left: auto;
-    width: 70px;
-    height: 70px;
     border-radius: 5px;
 }
 
 #stat_button {
-    /* display:inline-block; */
     margin: 5px 5px 5px 0px;
-    width: 70px;
-    height: 70px;
     border-radius: 5px;
 }
 
 #profile_button {
-    /* display:inline-block; */
     margin: 5px 5px 5px 0px;
-    /*margin-left: 150%;*/
-    width: 70px;
-    height: 70px;
+    border-radius: 5px;
+}
+
+#menu_buttons_collapse {
+    display: none;
+}
+
+#collapsed_menu {
+    margin: 5px 5px 5px 0px;
+    margin-left: auto;
     border-radius: 5px;
 }
 
 .img_button{
     display: block;
-    width: 70px;
-    height: 70px;
+    width: auto;
+    height: 40px;
 }
 .dropbtn, .modalbtn {
     background-color: #ADD8E6;
@@ -151,7 +143,7 @@
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
@@ -168,7 +160,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 50%;
     border-radius: 20px;
 }
 
@@ -247,29 +239,26 @@
     box-shadow: 0 5px 15px rgba(0, 255, 64, 0.4);
 }
 
-@media screen and (max-width: 900px) {
-    .header_bar{
-        width: 900px;
-    }
-}
 
 #admin_access {
-    display: none;
+    visibility: hidden;
 }
 
 #admin_profile {
-    position: absolute;
+    /* position: absolute;
     top: 2.4%;
     left: 250px;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: flex; */
+    margin: 5px 5px 5px 0px;
+    /* margin-left: auto; */
 }
 
 #admin_button {
     list-style: none;
-    width: 75px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     background: #787c7e;
     border-radius: 40px;
 }
@@ -277,6 +266,7 @@
 #admin_button:hover {
     width: 225px;
 }
+
 
 #admin_name {
     display: inline-flex;
@@ -295,3 +285,31 @@
 #admin_button:hover #admin_name {
     visibility: visible;
 }
+
+@media screen and (max-width: 1200px) {
+    .modal-content {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #menu_buttons {
+        display: none;
+    }
+
+    #menu_buttons_collapse {
+        display: flex;
+        max-width: 100%;
+        white-space: nowrap;
+    }
+
+    #title {
+        left: 40%;
+    }
+    .modal-content {
+        width: 80%;
+    }
+    .modal {
+        padding-top: 20px;
+    }
+  }

@@ -1,5 +1,5 @@
 <?php
-require 'db_configuration.php';
+    require 'db_configuration.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,13 +8,13 @@ require 'db_configuration.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/menu.css">
+    <!-- <link rel="stylesheet" href="css/menu.css"> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/animals.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
-<header style="background-color:#ADD8E6">
+<!-- <header style="background-color:#ADD8E6">
     <div class="header_bar">
         <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
@@ -57,21 +57,22 @@ require 'db_configuration.php';
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
-<body onload="updateMenus(); adminTool();" style="background-color:#e4f2f7">
+<?php include 'navigation.php';?>
 
-<div id="clue_box">
+<body onload="updateMenus();" style="background-color:#e4f2f7">
 
-</div>
-<div id="game_panel">
-    <div id="character_tile_panel">
-        <table id="character_table"></table>
-    </div>
-</div>
-<div id="game_message">
 
-</div>
+
+<table id="character_table"></table>
+
+<!-- <div id="game_panel"> -->
+    <!-- <div id="character_tile_panel">
+    </div> -->
+<!-- </div> -->
+
+
 
 <div id="submission_panel">
     <!-- Form calls Javascript function processGuess when the submit button is clicked. -->
@@ -80,6 +81,12 @@ require 'db_configuration.php';
         <input id="submit_button" type="submit" value="Submit" name="submit">
     </form>
 </div>
+
+<!-- <div id="game_dialog"> -->
+<div id="game_message"></div>
+<div id="clue_box"></div>
+<!-- </div> -->
+
 
 <!--  Help Modal      -->
 <?php $page_title = 'wordle > help modal';
@@ -120,7 +127,7 @@ include('statistics_modal.php');
             statModal.style.display = "none";
         }
     }
-    
+
     // var languageElement = document.getElementById("lang");
     // var lengthElement = document.getElementById("length");
     // var attemptsElement = document.getElementById("attempts");

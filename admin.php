@@ -1,5 +1,5 @@
 <?php
-require 'db_configuration.php';
+    require 'db_configuration.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,12 +8,12 @@ require 'db_configuration.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/custom_page.css">
-    <link rel="stylesheet" href="css/menu.css">
+    <!-- <link rel="stylesheet" href="css/menu.css"> -->
     <script src="js/animals.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<header>
+<!-- <header>
     <div class="header_bar">
         <div id="main_screen_logo">
             <a href="https://telugupuzzles.com"><img src="images/logo.png" alt="10000 Icon" style="height:80px;width:auto;"></a>
@@ -56,7 +56,8 @@ require 'db_configuration.php';
             </div>
         </div>
     </div>
-</header>
+</header> -->
+<?php include 'navigation.php';?>
 
 <body onload="updateMenus(); fillAdminTitle();" style="background-color:#e4f2f7">
 <div class="left_bar">
@@ -68,9 +69,8 @@ require 'db_configuration.php';
 </div>
 
 <div id="capability">
-    <div id="tools_title">
-        <h1>Admin Tools</h1>
-    </div>
+    <h1>Admin Tools</h1>
+
     <div id="report_button">
         <button class="Ibutton" onclick="showReportModal()">
             <div class="icon">
@@ -84,8 +84,6 @@ require 'db_configuration.php';
     </div>
     <!-- IMPORT BUTTON -->
     <div id="import_button">
-        <!-- <button class="admin_btn" onclick="showImportModal()"> -->
-            <!-- <img src="images/import_icon.png" alt="Import Icon"> -->
         <button class="Ibutton" onclick="showImportModal()">
             <div class="icon" onclick="showImportModal()">
                 <svg viewBox="0 0 16 16" class="bi bi-telegram" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
@@ -95,9 +93,9 @@ require 'db_configuration.php';
             </div>
             <p>IMPORT</p>
         </button>
-
-        
     </div>
+
+
 </div>
 
 <!--  Help Modal      -->
@@ -140,7 +138,6 @@ include('report.php');
     function fillAdminTitle(){
         document.getElementById("title").innerHTML = getAdminName();
     }
-
 
 </script>
 </body>
